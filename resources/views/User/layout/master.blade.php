@@ -37,21 +37,35 @@
                 </div>
 
             </div>
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+
+            <div class="dropdown">
+                <button class="navBtn btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 {{ Auth::user()->name }}
+                </button>
+                <ul class="dropdown-menu " style="background-color: lightyellow;">
+                  <li><a class="dropdown-item price"  href="#"><i class="fa-solid fa-id-card me-2"></i>Profile</a></li>
+                  <li><a class="dropdown-item price"  href="#"><i class="fa-solid fa-key me-2"></i>Change Password</a></li>
+                  <li><a class="dropdown-item price"  href="#"><i class="fa-solid fa-envelope me-2"></i>Message</a></li>
+                  <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <li><button class="dropdown-item price"  href=""><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</button></li>
+                  </form>
+                </ul>
+              </div>
+            {{-- <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
 
-                    <a href="" class="navbar-brand btn btn-secondary text-white border-none fs-6 navBtn">Profile</a>
+                    <a href="" class="navbar-brand btn btn-secondary text-white border-none fs-6 navBtn">{{ Auth::user()->name }}</a>
 
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="btn btn-primary navBtn" type="submit" data-dismiss="modal">Logout</button>
+                        <button class="btn btn-secondary navBtn" type="submit" data-dismiss="modal">Logout</button>
                     </form>
 
 
                 </div>
 
-            </div>
-
+            </div> --}}
         </div>
     </nav>
     <!-- nav bar end  -->

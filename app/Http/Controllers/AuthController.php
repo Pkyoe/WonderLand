@@ -17,8 +17,8 @@ class AuthController extends Controller
 
     public function dashboard(){
         if(Auth::user()->role == 'admin'){
-            return view('Admin.layout.master');
+            return redirect()->route('admin#dashboard');
         }
-        return view('User.layout.master');
+        return view('user.layout.master');
     }
 }
