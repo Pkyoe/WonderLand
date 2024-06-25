@@ -26,14 +26,20 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('delete/{id}',[CategoryController::class,'delete'])->name('category#delete');
     });
 
-
-
-// Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+    // Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
     // Route::get('/dashboard', function () {return view('Admin.layout.master');})->name('dashboard');
-   Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
-   Route::get('serviceList',[ServiceController::class,'serviceList'])->name('admin#serviceList');
-   Route::get('createService',[ServiceController::class,'createService'])->name('admin#createService');
+    Route::prefix('service')->group(function(){
+        Route::get('list',[ServiceController::class,'list'])->name('service#list');
+        Route::get('create/page',[ServiceController::class,'createPage'])->name('service#createPage');
+        Route::post('create',[ServiceController::class,'create'])->name('service#create');
+        Route::get('edit/{id}',[ServiceController::class,'edit'])->name('service#edit');
+        Route::post('update',[ServiceController::class,'update'])->name('service#update');
+        Route::get('delete/{id}',[ServiceController::class,'delete'])->name('service#delete');
 
+    });
+
+
+   Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
    Route::get('customer/list',[CustomerController::class,'customerListPage'])->name('admin#customerListPage');
 
 

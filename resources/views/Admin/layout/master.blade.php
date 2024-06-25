@@ -66,8 +66,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header text-dark">Custom Components:</h6> -->
                         <a class="collapse-item text-dark" href="{{ route('category#list') }}">Categories</a>
-                        <a class="collapse-item text-dark" href="{{ route('admin#serviceList') }}">Services List</a>
-                        <a class="collapse-item text-dark" href="{{ route('admin#createService') }}">Create Services</a>
+                        <a class="collapse-item text-dark" href="{{ route('service#list') }}">Services List</a>
+                        <a class="collapse-item text-dark" href="{{ route('service#createPage') }}">Create Services</a>
 
                     </div>
                 </div>
