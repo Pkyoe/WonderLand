@@ -1,0 +1,94 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Gallery;
+
+use function Ramsey\Uuid\v1;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
+class GalleryController extends Controller
+{
+    public function list()
+    {
+        $photos =Gallery::paginate(5);
+        return view('admin.gallery.list',compact('photos'));
+    }
+
+    public function createPage(){
+        return view('Admin.gallery.create');
+    }
+
+    public function create(Request $request){
+        $this->dataValidationCheck($request , 'create');
+        $data = $this->requestGalleryInfo($request);
+
+        $fileName = uniqid().$request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public',$fileName);
+        $data['image'] = $fileName;
+
+        Gallery::create($data);
+        return redirect()->route('gallery#list')->with(['galleryCreateSuccess'=>'Gallery Created Successful']);
+    }
+
+    public function edit($id){
+        $photoData = Gallery::where('id',$id)->first();
+        return view('Admin.gallery.edit',compact('photoData'));
+    }
+
+    public function update(Request $request){
+        $this->dataValidationCheck($request ,'update');
+        $data = $this->requestGalleryInfo($request);
+
+        if($request->hasFile('image')){
+            $oldImageName = Gallery::where('id',$request->id)->first()->image;
+            // dd($oldImageName);
+            if($oldImageName != null){
+                Storage::delete('public/'.$oldImageName);
+            }
+
+            $fileName = uniqid().$request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public',$fileName);
+            $data['image'] = $fileName;
+        }
+
+        Gallery::where('id',$request->id)->update($data);
+        return redirect()->route('gallery#list')->with(['galleryUpdateSuccess'=>'Gallery Updated Successful']);
+    }
+
+    public function delete($id){
+        Gallery::where('id',$id)->delete();
+        return redirect()->route('gallery#list')->with(['galleryDeleteSuccess'=>'Gallery Deleted Successful']);
+    }
+
+    private function dataValidationCheck($request ,$action){
+        $validationRule = [
+
+            'description' => 'required'
+        ];
+
+        $validationRule['image'] = $action == 'create' ? 'required' :'required|image';
+
+        Validator::make($request->all(), $validationRule)->validate();
+    }
+
+    private function requestGalleryInfo($request){
+        return [
+            'image' => $request->image,
+            'description' => $request->description
+        ];
+    }
+
+    // private function photoValidation($request){
+    //     $fileName = uniqid().$request->file('image')->getClientOriginalName();
+    //     dd($fileName);
+    //     $request->file('image')->storeAs('public',$fileName);
+    //     $data['image'] = $fileName;
+
+    //     Gallery::create($fileName);
+    //     return $fileName;
+    // }
+
+}

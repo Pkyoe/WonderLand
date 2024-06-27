@@ -29,36 +29,35 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($customers as $customer )
+                    @if ($customer->role == 'admin')
                     <tr>
-                        <th scope="row">1</th>
-                        <td>admin</td>
-                        <td>admin@gmail.com</td>
-                        <td>09123456789</td>
-                        <td>admin</td>
-                        <td><a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                        <th scope="row">{{ $customer->id  }}</th>
+                        <td>{{ $customer->name }}</td>
+                        <td>{{ $customer->email }}</td>
+                        <td>{{ $customer->phone  }}</td>
+                        <td>{{ $customer->role  }}</td>
+                        <td><a href="" class="btn btn-success">Change Role</a>
+                            {{-- <a href="" class="btn btn-danger">Block</a> --}}
                         </td>
                     </tr>
+                    @else
                     <tr>
-                        <th scope="row">2</th>
-                        <td>admin</td>
-                        <td>admin@gmail.com</td>
-                        <td>09123456789</td>
-                        <td>admin</td>
-                        <td><a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                        <th scope="row">{{ $customer->id  }}</th>
+                        <td>{{ $customer->name }}</td>
+                        <td>{{ $customer->email }}</td>
+                        <td>{{ $customer->phone  }}</td>
+                        <td>{{ $customer->role  }}</td>
+                        <td><a href="" class="btn btn-success">Change Role</a>
+                            <a href="" class="btn btn-danger">Block</a>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>admin</td>
-                        <td>admin@gmail.com</td>
-                        <td>09123456789</td>
-                        <td>admin</td>
-                        <td><a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
+
+                    @endif
+
+                    @endforeach
+
+
                 </tbody>
             </table>
         </div>

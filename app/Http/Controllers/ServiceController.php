@@ -17,7 +17,8 @@ class ServiceController extends Controller
         if(Auth::user()->role == 'admin'){
             $categories = Category::get();
             $customer = User::get();
-            return view('Admin.dashboard.dashboard',compact('categories','customer'));
+            $services = Service::get();
+            return view('Admin.dashboard.dashboard',compact('categories','customer','services'));
         }
         return view('user.layout.master');
 

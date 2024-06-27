@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function customerListPage()
+    public function list()
     {
-        return view('Admin.customer.customerList');
+        $customers = User::get();
+        return view('Admin.customer.customerList',compact('customers'));
     }
 }

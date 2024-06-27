@@ -4,17 +4,22 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Middleware\AdminMiddleware;
 
-Route::get('/', function () {
-    return view('layouts.welcome');
-});
 
-Route::get('loginPage',[AuthController::class , 'loginPage'])->name('auth#loginPage');
-Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
+    Route::get('/', function () {
+        return view('layouts.welcome');
+    });
+
+    Route::get('loginPage',[AuthController::class , 'loginPage'])->name('auth#loginPage');
+    Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+
+    Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
 
     Route::prefix('category')->group(function()
     {
@@ -35,12 +40,19 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('edit/{id}',[ServiceController::class,'edit'])->name('service#edit');
         Route::post('update',[ServiceController::class,'update'])->name('service#update');
         Route::get('delete/{id}',[ServiceController::class,'delete'])->name('service#delete');
-
     });
 
+    Route::prefix('customer')->group(function(){
+       Route::get('list',[CustomerController::class,'list'])->name('customer#list');
+    });
 
-   Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
-   Route::get('customer/list',[CustomerController::class,'customerListPage'])->name('admin#customerListPage');
-
+    Route::prefix('gallery')->group(function(){
+        Route::get('list',[GalleryController::class,'list'])->name('gallery#list');
+        Route::get('create/page',[GalleryController::class,'createPage'])->name('gallery#createPage');
+        Route::post('create',[GalleryController::class,'create'])->name('gallery#create');
+        Route::get('edit/{id}',[GalleryController::class,'edit'])->name('gallery#edit');
+        Route::post('update',[GalleryController::class,'update'])->name('gallery#update');
+        Route::get('delete/{id}',[GalleryController::class,'delete'])->name('gallery#delete');
+     });
 
 });

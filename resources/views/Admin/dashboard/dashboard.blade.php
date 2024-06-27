@@ -84,7 +84,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Blogs</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ count($services) }}</div>
                             </div>
                             <div class="col-auto">
                                 <i style="color: blueviolet;" class="fa-solid fa-file-lines fa-2x"></i>

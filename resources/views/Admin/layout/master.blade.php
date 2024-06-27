@@ -82,8 +82,8 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="">Create Gallery</a>
-                        <a class="collapse-item" href="">Photo List</a>
+                        <a class="collapse-item" href="{{ route('gallery#createPage') }}">Uplode Photo</a>
+                        <a class="collapse-item" href="{{ route('gallery#list') }}">Photo List</a>
                         <!-- <a class="collapse-item" href="utilities-border.html">Borders</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a> -->
@@ -94,12 +94,12 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-users text-dark"></i>
-                    <span class="text-dark">Customer</span>
+                    <span class="text-dark">Customer Management</span>
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="{{ route('admin#customerListPage') }}">Customer List</a>
+                        <a class="collapse-item" href="{{ route('customer#list') }}">Customer List</a>
                         {{-- <a class="collapse-item" href="utilities-border.html">Photo List</a> --}}
                         <!-- <a class="collapse-item" href="utilities-border.html">Borders</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
@@ -112,12 +112,12 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading text-dark">
+            {{-- <div class="sidebar-heading text-dark">
                 Addons
-            </div>
+            </div> --}}
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder text-dark"></i>
                     <span class="text-dark">Pages</span>
@@ -134,21 +134,21 @@
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link text-dark" href="charts.html">
                     <i class="fas fa-fw fa-chart-area text-dark"></i>
                     <span class="">Charts</span></a>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link text-dark" href="tables.html">
                     <i class="fas fa-fw fa-table text-dark"></i>
                     <span>Tables</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -366,7 +366,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2024 Made with ♥ by Swagger</span>
                     </div>
                 </div>
             </footer>
