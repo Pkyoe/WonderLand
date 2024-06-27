@@ -20,7 +20,7 @@ class ServiceController extends Controller
             $services = Service::get();
             return view('Admin.dashboard.dashboard',compact('categories','customer','services'));
         }
-        return view('user.layout.master');
+        return view('user.main.home');
 
     }
 

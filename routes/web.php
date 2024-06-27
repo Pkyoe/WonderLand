@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 
 
@@ -53,6 +54,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('edit/{id}',[GalleryController::class,'edit'])->name('gallery#edit');
         Route::post('update',[GalleryController::class,'update'])->name('gallery#update');
         Route::get('delete/{id}',[GalleryController::class,'delete'])->name('gallery#delete');
+     });
+
+     Route::prefix('user')->group(function(){
+        Route::get('home',[UserController::class,'homePage'])->name('user#homePage');
+        Route::get('aboutUs',[UserController::class,'aboutUsPage'])->name('user#aboutUsPage');
+        Route::get('gallery',[UserController::class,'galleryPage'])->name('user#galleryPage');
+        Route::get('service',[UserController::class,'servicePage'])->name('user#servicePage');
+        Route::get('contact',[UserController::class,'contactUsPage'])->name('user#contactUsPage');
+
      });
 
 });
