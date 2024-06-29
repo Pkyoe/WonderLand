@@ -34,8 +34,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
 
     Route::prefix('admin')->group(function(){
+        Route::get('profile',[AdminController::class,'profilePage'])->name('admin#profilePage');
+        Route::get('profile/edit',[AdminController::class,'editProfilePage'])->name('admin#editProfilePage');
+        Route::post('update/{id}',[AdminController::class,'update'])->name('admin#profileUpdate');
         Route::get('password/change',[AdminController::class,'changePasswordPage'])->name('admin#changePasswordPage');
         Route::post('password/change',[AdminController::class,'changePassword'])->name('admin#changePassword');
+
     });
 
     Route::prefix('category')->group(function()

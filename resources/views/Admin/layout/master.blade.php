@@ -360,7 +360,7 @@
                             <!-- Dropdown - User Information -->
                             <ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item m-2" href="#">
+                                <a class="dropdown-item m-2" href="{{ route('admin#profilePage') }}">
                                     <i class="fa-solid fa-id-card"></i> Profile
                                 </a>
                                 <a class="dropdown-item m-2" href="{{ route('admin#changePasswordPage') }}">
