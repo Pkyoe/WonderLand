@@ -1,6 +1,6 @@
-@extends('user.layout.master')
+@extends('layouts.welcome')
 
-@section('title', 'Services')
+@section('title' , 'service')
 
 @section('content')
 
@@ -24,7 +24,7 @@
                     <p class="price">MMK{{ $s->price }}</p>
                     {{-- <p class="card-text">{{ $s->description }}</p> --}}
                     <a href="" class="btn btn-secondary navBtn">Book Now</a>
-                    <a href="{{ route('user#detailPage') }}" class="btn btn-secondary detail">View Details</a>
+                    <a href="" class="btn btn-secondary detail">View Details</a>
                 </div>
             </div>
         </div>
@@ -33,5 +33,3 @@
     </div>
 </div>
 @endsection
-
-

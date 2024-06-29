@@ -1,7 +1,7 @@
 <!-- nav bar start  -->
 <nav id="navbar" class="navbar navbar-expand-lg mt-5 d-flex justify-content-between">
     <div class="container-lg">
-        <a class="navbar-brand" href="#" style="color:darkviolet;">
+        <a class="navbar-brand" href="{{ route('guest#homePage') }}" style="color:darkviolet;">
             <h4 class="fw-bold">Dreams</h4>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -10,11 +10,11 @@
         </button>
         <div class="collapse navbar-collapse ms-5" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active text-dark fs-5" aria-current="page" href="">Home</a>
-                <a class="nav-link  fs-5" href="#aboutUs">About Us</a>
-                <a class="nav-link  fs-5" href="#">Gallery</a>
-                <a class="nav-link  fs-5" href="service.html">Services </a>
-                <a class="nav-link  fs-5" href="#contactUs">Contact Us</a>
+                <a class="nav-link active text-dark fs-5" aria-current="page" href="{{ route('guest#homePage') }}">Home</a>
+                <a class="nav-link  fs-5" href="{{ route('guest#aboutPage') }}">About Us</a>
+                <a class="nav-link  fs-5" href="{{ route('guest#galleryPage') }}">Gallery</a>
+                <a class="nav-link  fs-5" href="{{ route('guest#servicePage') }}">Services </a>
+                <a class="nav-link  fs-5" href="{{ route('guest#contactPage') }}">Contact Us</a>
             </div>
 
         </div>

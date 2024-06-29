@@ -1,11 +1,11 @@
-@extends('user.layout.master')
+@extends('layouts.welcome')
 
-@section('title', 'HomePage')
+@section('title' , 'home')
 
 @section('content')
 
- <!-- home start  -->
- <div class="container-lg mt-4">
+<!-- home start  -->
+<div class="container-lg mt-4">
     <div class="row min-vh-100 align-items-center align-content-center">
         <div class="col-md-6 ">
             <div class="text-center">
@@ -20,13 +20,11 @@
                 <h1 class="fi">Tailored For You</h1>
                 <p class="mt-2">Guiding You Towards the Crafting Timeless Moments Curated Wedding Planning
                     Tallored to Your Love Story</p>
-                    <button class="btn btn-secondary mt-2" style="background-color: blueviolet">Book Now</button>
             </div>
 
         </div>
     </div>
 </div>
 <!-- home end  -->
+
 @endsection
-
-

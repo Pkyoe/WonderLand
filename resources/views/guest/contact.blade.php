@@ -1,8 +1,9 @@
-@extends('user.layout.master')
+@extends('layouts.welcome')
 
-@section('title', 'Contact Us')
+@section('title' , 'contact')
 
 @section('content')
+
 
 <div class="container-lg mt-5 " id="contactUs">
     <div class="row align-items-center align-content-center">
@@ -41,5 +42,3 @@
 </div>
 
 @endsection
-
-

@@ -1,26 +1,42 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\UserMiddleware;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 
 
-    Route::get('/', function () {
-        return view('layouts.welcome');
-    });
+    // Route::get('/', function () {
+    //     return view('layouts.welcome');
+    // });
+
+    //guest route start
+    Route::get('/',[GuestController::class,'homePage'])->name('guest#homePage');
+    Route::get('/about',[GuestController::class,'aboutPage'])->name('guest#aboutPage');
+    Route::get('/gallery',[GuestController::class,'galleryPage'])->name('guest#galleryPage');
+    Route::get('/service',[GuestController::class,'servicePage'])->name('guest#servicePage');
+    Route::get('/contact',[GuestController::class,'contactPage'])->name('guest#contactPage');
+    //guest route end
 
     Route::get('loginPage',[AuthController::class , 'loginPage'])->name('auth#loginPage');
     Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
-
+    //check admin or user
     Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
+
+    Route::prefix('admin')->group(function(){
+        Route::get('password/change',[AdminController::class,'changePasswordPage'])->name('admin#changePasswordPage');
+        Route::post('password/change',[AdminController::class,'changePassword'])->name('admin#changePassword');
+    });
 
     Route::prefix('category')->group(function()
     {
@@ -56,13 +72,17 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('delete/{id}',[GalleryController::class,'delete'])->name('gallery#delete');
      });
 
-     Route::prefix('user')->group(function(){
+
+     //user route start
+    Route::prefix('user')->group(function(){
         Route::get('home',[UserController::class,'homePage'])->name('user#homePage');
         Route::get('aboutUs',[UserController::class,'aboutUsPage'])->name('user#aboutUsPage');
         Route::get('gallery',[UserController::class,'galleryPage'])->name('user#galleryPage');
         Route::get('service',[UserController::class,'servicePage'])->name('user#servicePage');
         Route::get('contact',[UserController::class,'contactUsPage'])->name('user#contactUsPage');
+        Route::get('detail',[UserController::class,'detail'])->name('user#detailPage');
 
-     });
+    });
+     //user route end
 
 });

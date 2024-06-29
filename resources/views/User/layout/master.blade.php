@@ -20,7 +20,7 @@
     <!-- nav bar start  -->
     <nav id="navbar" class="navbar navbar-expand-lg mt-5 d-flex justify-content-between">
         <div class="container-lg">
-            <a class="navbar-brand" href="#" style="color:darkviolet;">
+            <a class="navbar-brand" href="{{ route('user#homePage') }}" style="color:darkviolet;">
                 <h4 class="fw-bold">Dreams</h4>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -51,7 +51,7 @@
                     <li><button class="dropdown-item price"  href=""><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</button></li>
                   </form>
                 </ul>
-              </div>
+            </div>
         </div>
     </nav>
     <!-- nav bar end  -->

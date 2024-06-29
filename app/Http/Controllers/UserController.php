@@ -33,4 +33,8 @@ class UserController extends Controller
         $photos =Gallery::paginate(5);
         return view('user.main.gallery',compact('photos'));
     }
+
+    public function detail(){
+        return view('user.main.detail');
+    }
 }
