@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
+use function Laravel\Prompts\alert;
+
 class AdminMiddleware
 {
     /**
@@ -16,9 +18,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role == 'user'){
-            abort(404);
-        }
+       if(Auth::user()->role == 'user'){
+        //    return response()->json('Opps! You do not have permission to access.', 403);
+        return redirect()->route('guest#notFoundPage');
+       }
+
         return $next($request);
     }
 }

@@ -34,4 +34,8 @@ class GuestController extends Controller
         return view('guest.contact');
     }
 
+    public function notFoundPage(){
+        return view('404Page');
+    }
+
 }

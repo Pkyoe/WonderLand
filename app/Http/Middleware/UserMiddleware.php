@@ -16,10 +16,9 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // if (Auth::user()->role == 'admin') {
-        //     abort(404);
-        // }
-        echo "user middleware";
+        if (Auth::user()->role == 'admin') {
+            return redirect()->route('guest#notFoundPage');
+        }
         return $next($request);
     }
 }
