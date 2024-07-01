@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use App\Models\Service;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -25,6 +27,7 @@ class UserController extends Controller
                             ->leftjoin('categories','services.category_id','categories.id')
                             ->get();
         // ->paginate(5);
+        // dd($services->toArray());
 
         return view('user.main.services',compact('services'));
     }
@@ -37,4 +40,39 @@ class UserController extends Controller
     public function detail(){
         return view('user.main.detail');
     }
+
+    public function bookingForm(){
+        $categories = Category::select('id','name')->get();
+        return view('user.main.booking',compact('categories'));
+    }
+
+    public function create(Request $request){
+        $this->serviceValidationCheck($request);
+        $info = $this->requestBookingData($request);
+        dd($info);
+    }
+
+    private function serviceValidationCheck($request){
+        $validationData = [
+            'mrName' => 'required',
+            'missName' => 'required',
+            'serviceName' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'date' => 'required',
+        ];
+        Validator::make($request->all(),$validationData)->validate();
+    }
+
+    private function requestBookingData($request){
+        return [
+            'mr_name' => $request->mrName ,
+            'miss_name' => $request->missName,
+            'service_name' => $request->serviceName,
+            'email' => $request->email ,
+            'phone' => $request->phone ,
+            'date' => $request->date ,
+        ];
+    }
+
 }

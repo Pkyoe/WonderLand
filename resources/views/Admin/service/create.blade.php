@@ -38,7 +38,7 @@
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
-                @enderror
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
@@ -29,12 +30,12 @@ use App\Http\Controllers\CustomerController;
     Route::get('loginPage',[AuthController::class , 'loginPage'])->name('auth#loginPage');
     Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
 
-
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+    Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
+    Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
     //check admin or user
     Route::middleware(['isAdmin'])->group(function(){
 
-        Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
+
 
         Route::prefix('admin')->group(function(){
             Route::get('profile',[AdminController::class,'profilePage'])->name('admin#profilePage');
@@ -80,6 +81,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
              Route::get('delete/{id}',[GalleryController::class,'delete'])->name('gallery#delete');
           });
 
+        Route::prefix('booking')->group(function(){
+            Route::get('list',[BookingController::class,'list'])->name('booking#list');
+        });
+
 
     });
 
@@ -91,6 +96,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('service',[UserController::class,'servicePage'])->name('user#servicePage');
         Route::get('contact',[UserController::class,'contactUsPage'])->name('user#contactUsPage');
         Route::get('detail',[UserController::class,'detail'])->name('user#detailPage');
+        Route::get('booking/form',[UserController::class,'bookingForm'])->name('user#bookingForm');
+        Route::post('booking/create',[UserController::class,'create'])->name('user#bookingCreate');
 
     });
      //user route end

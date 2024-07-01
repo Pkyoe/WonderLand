@@ -88,7 +88,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
                         <a class="collapse-item" href="{{ route('gallery#createPage') }}">Uplode Photo</a>
                         <a class="collapse-item" href="{{ route('gallery#list') }}">Photo List</a>
                         <!-- <a class="collapse-item" href="utilities-border.html">Borders</a>
@@ -107,9 +107,27 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
                         <a class="collapse-item" href="{{ route('customer#list') }}">Customer List</a>
                         {{-- <a class="collapse-item" href="utilities-border.html">Photo List</a> --}}
+                        <!-- <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a> -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesTwo"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-image text-dark"></i>
+                    <span class="text-dark">Booking</span>
+                </a>
+                <div id="collapseUtilitiesTwo" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('booking#list') }}">Booking List</a>
+                        {{-- <a class="collapse-item" href="">Photo List</a> --}}
                         <!-- <a class="collapse-item" href="utilities-border.html">Borders</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a> -->
