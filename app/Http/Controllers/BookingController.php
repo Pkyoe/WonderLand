@@ -10,11 +10,18 @@ class BookingController extends Controller
 {
     public function list()
     {
-        $service = Booking::select('bookings.*','users.name as user_name')
-                            ->leftJoin('users','users.id','bookings.user_id')
-                            ->get();
-                            dd($service->toArray());
-        return view('Admin.booking.list',compact('service'));
+        $booking = Booking::select("bookings.*","categories.name as service_name")
+                            ->leftjoin("categories","bookings.service_name","categories.id")
+                            ->paginate(5);
+
+        return view('Admin.booking.list',compact('booking'));
+    }
+
+    public function orderAccept(Booking $booking)
+    {
+        if($booking->status == 0 ){
+            return redirect()->back()->with(['orderAcceptSuccess'=>'Order Accepted Successfully']);
+        }
     }
 
 

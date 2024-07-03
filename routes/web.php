@@ -98,6 +98,10 @@ use App\Http\Controllers\CustomerController;
         Route::get('detail',[UserController::class,'detail'])->name('user#detailPage');
         Route::get('booking/form',[UserController::class,'bookingForm'])->name('user#bookingForm');
         Route::post('booking/create',[UserController::class,'create'])->name('user#bookingCreate');
+        Route::get('message',[UserController::class,'message'])->name('user#message');
+        Route::get('profile',[UserController::class,'profilePage'])->name('user#profilePage');
+        Route::get('profile/edit',[UserController::class,'editProfilePage'])->name('user#editProfilePage');
+        Route::post('update/{id}',[UserController::class,'update'])->name('user#profileUpdate');
 
     });
      //user route end

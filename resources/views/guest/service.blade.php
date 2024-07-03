@@ -14,7 +14,7 @@
 
     </div>
 
-    <div class="row ">
+    <div class="row min-vh-100">
         @foreach ($services as $s )
         <div class="col-lg-4">
             <div class="card mt-5">

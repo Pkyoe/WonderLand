@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container-lg mt-5 " id="contactUs">
-    <div class="row align-items-center align-content-center">
+    <div class="row min-vh-100 align-items-center align-content-center">
         <div class="col-md-12">
             <h4 class="text-center" style="color:blueviolet">Contact Us</h4>
             <p class="mt-3 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vel saepe

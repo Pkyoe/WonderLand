@@ -18,7 +18,7 @@
 
     </div>
 
-    <div class="row mt-4">
+    <div class="row min-vh-100 mt-4">
         @foreach ($photos as $p )
         <div class="col-lg-4">
             <div class="card mt-5 gallery">

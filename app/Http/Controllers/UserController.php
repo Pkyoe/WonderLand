@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Booking;
 use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Category;
@@ -20,6 +23,29 @@ class UserController extends Controller
 
     public function contactUsPage(){
         return view('user.main.contactUs');
+    }
+
+    public function profilePage(){
+        return view('user.account.profile');
+    }
+
+    public function editProfilePage(){
+        return view('user.account.edit');
+    }
+
+    public function update($id , Request $request){
+        $updateData = $this->getUserData($request);
+        // dd($updateData);
+        User::where('id',$id)->update($updateData);
+        return redirect()->route('user#profilePage')->with(['updateSuccess' => 'Profile Update Success']);
+    }
+
+    public function message()
+    {
+        $booking = Booking::select("bookings.*","categories.name as service_name")
+        ->leftjoin("categories","bookings.service_name","categories.id")
+        ->get();
+        return view('user.main.message',compact('booking'));
     }
     public function servicePage()
     {
@@ -49,7 +75,10 @@ class UserController extends Controller
     public function create(Request $request){
         $this->serviceValidationCheck($request);
         $info = $this->requestBookingData($request);
-        dd($info);
+        // dd($info);
+        Booking::create($info);
+        return redirect()->route('user#message')->with('successBooking','Booking created successfully!Please Wait Admin Response ...');
+
     }
 
     private function serviceValidationCheck($request){
@@ -72,6 +101,15 @@ class UserController extends Controller
             'email' => $request->email ,
             'phone' => $request->phone ,
             'date' => $request->date ,
+        ];
+    }
+
+    private function getUserData($request){
+        return [
+            'name' => $request-> userName,
+            'email' => $request-> email,
+            'phone' => $request-> phone,
+            'updated_at' => Carbon::now()
         ];
     }
 

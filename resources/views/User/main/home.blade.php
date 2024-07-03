@@ -20,7 +20,7 @@
                 <h1 class="fi">Tailored For You</h1>
                 <p class="mt-2">Guiding You Towards the Crafting Timeless Moments Curated Wedding Planning
                     Tallored to Your Love Story</p>
-                    <button class="btn btn-secondary mt-2" style="background-color: blueviolet">Book Now</button>
+                    <a href="{{ route('user#bookingForm')}}"><button class="btn btn-secondary mt-2" style="background-color: blueviolet">Book Now</button></a>
             </div>
 
         </div>

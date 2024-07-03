@@ -38,7 +38,7 @@
     <!-- Content Row -->
 
     <div class="row d-flex justify-content-center">
-        <div class="col-lg-12">
+        <div class="col-lg-12 card shadow-lg">
             <table class="table">
                 <thead>
                     <tr>
@@ -46,32 +46,34 @@
                         <th scope="col">Mr Name</th>
                         <th scope="col">Miss Name</th>
                         <th scope="col">Service Name</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Date</th>
                         <th></th>
 
                     </tr>
                 </thead>
                 <tbody>
-
+                    @foreach ($booking as $b )
                     <tr>
-                        <th scope="row">1</th>
-                        <td class=""> Paing Soe Khant</td>
-                        <td class="">Mr...</td>
-                        <td class="">Elite Package </td>
-                        <td>MMK 500000</td>
+                        <th scope="row">{{ $b->id }}</th>
+                        <td class=""> {{ $b->mr_name }}</td>
+                        <td class="">{{ $b->miss_name }}</td>
+                        <td class="">{{ $b->service_name }} </td>
+                        <td>{{ $b->email }}</td>
+                        <td>{{ $b->phone }}</td>
+                        <td>{{ $b->date }}</td>
                         <td><a href="" class="btn btn-success">Accept</a>
                             <a href="" class="btn btn-danger">Reject</a>
                         </td>
                     </tr>
-
-
-
+                    @endforeach
                 </tbody>
             </table>
-            {{-- <div class="">
-                {{$categories->links('pagination::bootstrap-5')}}
+            <div class="">
+                {{$booking->links('pagination::bootstrap-5')}}
 
-            </div> --}}
+            </div>
         </div>
 
 

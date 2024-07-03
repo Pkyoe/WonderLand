@@ -18,11 +18,11 @@
 
     </div>
 
-    <div class="row mt-4">
+    <div class="row mt-4  min-vh-100">
         @foreach ($photos as $p )
         <div class="col-lg-4">
-            <div class="card mt-5 gallery">
-               <a href=""> <img src="{{ asset('storage/'.$p->image) }}" class="card-img-top rounded-5" alt="..."></a>
+            <div class="card mt-5 ">
+               <a href=""> <img src="{{ asset('storage/'.$p->image) }}" class="card-img-top" alt="..."></a>
                 <!-- <div class="card-body">
                     <h5 class="card-title">Elite Package Wedding</h5>
                     <p class="price">Price - $1000</p>

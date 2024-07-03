@@ -12,11 +12,23 @@
             </div>
         </div>
 
+        <small class="text-center text-danger">Before you fill booking form , Please check booking date in <a href="{{ route('user#message') }}">booking history</a></small>
+
     </div>
+
+
+    @if (session('successBooking'))
+    <div class="col-4 offset-8">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-check"></i> {{ session('successBooking') }}
+        </div>
+    </div>
+    @endif
+
 
     <div class="row d-flex justify-content-center mt-2">
         <div class="col-lg-6 card p-4 d-flex justify-content-center" style="background-color: lightyellow">
-            <small class="mb-2 text-danger">Please fill up the form</small>
+            {{-- <small class="mb-2 text-danger">Please fill up the form</small> --}}
             <div class="" >
                 <form action="{{ route('user#bookingCreate') }}" method="post" >
                     @csrf
