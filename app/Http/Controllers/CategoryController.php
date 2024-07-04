@@ -53,7 +53,7 @@ class CategoryController extends Controller
     }
 
     private function categoryDataValidation($request){
-        Validator::make($request->all(),['categoryName' => 'required|unique:categories,name'])->validate();
+        Validator::make($request->all(),['categoryName' => 'required|unique:categories,name,'.$request->id])->validate();
     }
 
 }

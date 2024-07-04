@@ -33,11 +33,11 @@ use App\Http\Controllers\CustomerController;
     Route::get('loginPage',[AuthController::class , 'loginPage'])->name('auth#loginPage');
     Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
 
-    Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
 
+    Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
     Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
-    //check admin or user
-    Route::middleware(['isAdmin'])->group(function(){
+        //check admin or user
+        Route::middleware(['isAdmin'])->group(function(){
 
         Route::prefix('admin')->group(function(){
             Route::get('profile',[AdminController::class,'profilePage'])->name('admin#profilePage');

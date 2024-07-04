@@ -86,7 +86,6 @@ class UserController extends Controller
     public function create(Request $request){
         $this->serviceValidationCheck($request);
         $info = $this->requestBookingData($request);
-        // dd($info);
         Booking::create($info);
         return redirect()->route('user#message')->with('successBooking','Booking created successfully!Please Wait Admin Response ...');
 
@@ -165,7 +164,7 @@ class UserController extends Controller
         return [
             'mr_name' => $request->mrName ,
             'miss_name' => $request->missName,
-            'service_name' => $request->serviceName,
+            'service_id' => $request->serviceName,
             'email' => $request->email ,
             'phone' => $request->phone ,
             'date' => $request->date ,
