@@ -1,17 +1,17 @@
-@extends('admin.layout.master')
+@extends('user.layout.master')
 
 @section('title','change password')
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid min-vh-100">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 style="color: blueviolet;" class="h3 mb-0 ">Change Password</h1>
         <a href="{{ route('category#list') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i>Categories List</a>
-    </div>
+    </div> --}}
 
 
     @if (session('changeSuccess'))
@@ -24,8 +24,10 @@
 
     <!-- Content Row -->
     <div class="row d-flex justify-content-center">
-        <div class="col-lg-6">
-            <form action="{{ route('admin#changePassword') }}" method="POST">
+
+        <div class="col-lg-6 card  mb-5 mt-5 p-5 bg_color">
+            <h5>Change Password</h5>
+            <form action="{{ route('user#changePassword') }}" method="POST" class="mt-5">
                 @csrf
                 <div class="mb-3">
                     <label for="category" class="form-label">Old Password</label>

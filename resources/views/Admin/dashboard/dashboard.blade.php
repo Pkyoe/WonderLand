@@ -43,7 +43,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Total Booking</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ count($booking)  }}</div>
                             </div>
                             <div class="col-auto">
                                 <i style="color: blueviolet;" class="fa-solid fa-book-bookmark fa-2x"></i>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">15</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ count($photo) }}</div>
                                     </div>
 
                                 </div>

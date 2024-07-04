@@ -120,13 +120,14 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesTwo"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa-solid fa-image text-dark"></i>
+                    <i class="fa-solid fa-envelopes-bulk text-dark"></i>
                     <span class="text-dark">Booking</span>
                 </a>
                 <div id="collapseUtilitiesTwo" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('booking#list') }}">Booking List</a>
+                        <a class="collapse-item" href="{{ route('feedback#list') }}">Feedback List</a>
                         {{-- <a class="collapse-item" href="">Photo List</a> --}}
                         <!-- <a class="collapse-item" href="utilities-border.html">Borders</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>

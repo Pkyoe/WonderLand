@@ -33,12 +33,13 @@
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <i class="fa-solid fa-check"></i> {{ session('categoryDeleteSuccess') }}
                 </div>
+                {{-- style="background-color: rgb(250, 250, 196);" --}}
             </div>
         @endif
         <!-- Content Row -->
         @if (count($booking) != 0)
             <div class="row min-vh-100 d-flex justify-content-center mt-2 mb-3">
-                <div class=" col-lg-6 card shadow-lg w-75" style="background-color: rgb(250, 250, 196);">
+                <div class=" col-lg-6  shadow-lg w-75 bg_color" >
                     <table class="table table-warning" >
                         <thead>
                             <tr>
@@ -75,8 +76,8 @@
 
             </div>
         @else
-            <h3 class=" text-center mt-5" style="color:limegreen;">There is no Categories Here! Please Create Your
-                Categories.</h3>
+            <h3 class=" text-center mt-5" style="color:limegreen;">There is no Booking Here!
+                </h3>
         @endif
 
 

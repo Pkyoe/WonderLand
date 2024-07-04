@@ -39,8 +39,9 @@
     @endif
 
 
-
-    <!-- Content Row -->
+    @if (count($services) == 0)
+        <h5 class="text-center ">There is no service here !</h5>
+    @else
     <div class="row d-flex justify-content-center">
         <div class="col-lg-12">
             <table class="table">
@@ -79,6 +80,9 @@
         </div>
 
     </div>
+    @endif
+    <!-- Content Row -->
+
 
     <!-- Content Row -->
 </div>

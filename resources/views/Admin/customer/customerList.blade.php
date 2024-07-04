@@ -13,6 +13,23 @@
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
 
+    @if (session('changeSuccess'))
+    <div class="col-4 offset-8">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-check"></i> {{ session('changeSuccess') }}
+        </div>
+    </div>
+    @endif
+
+
+    @if (session('blockSuccess'))
+    <div class="col-4 offset-8">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-check"></i> {{ session('blockSuccess') }}
+        </div>
+    </div>
+    @endif
+
     <!-- Content Row -->
     <div class="row d-flex justify-content-center">
         <div class="col-lg-12 card shadow-lg">
@@ -37,7 +54,7 @@
                         <td>{{ $customer->email }}</td>
                         <td>{{ $customer->phone  }}</td>
                         <td>{{ $customer->role  }}</td>
-                        <td><a href="" class="btn btn-success">Change Role</a>
+                        {{-- <td><a href="" class="btn btn-success">Change Role</a> --}}
                             {{-- <a href="" class="btn btn-danger">Block</a> --}}
                         </td>
                     </tr>
@@ -48,8 +65,8 @@
                         <td>{{ $customer->email }}</td>
                         <td>{{ $customer->phone  }}</td>
                         <td>{{ $customer->role  }}</td>
-                        <td><a href="" class="btn btn-success">Change Role</a>
-                            <a href="" class="btn btn-danger">Block</a>
+                        <td><a href="{{ route('customer#changeRolePage',$customer->id) }}" class="btn btn-success">Change Role</a>
+                            <a href="{{ route('customer#block',$customer->id )}}" class="btn btn-danger">Block</a>
                         </td>
                     </tr>
 

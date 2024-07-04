@@ -24,7 +24,7 @@
 
     <!-- Content Row -->
     <div class="row d-flex justify-content-center mt-5">
-        <div class="col-lg-6 card  p-3 shadow-sm border" style="background-color: lightyellow">
+        <div class="col-lg-6 card p-3 shadow-sm border" style="background-color: lightyellow">
             <h4 class="" style="color: blueviolet">Profile</h4>
             {{-- <div class="col-4 bg-dark offset-4">hello</div> --}}
             <div class="col-5 offset-4 mt-1">

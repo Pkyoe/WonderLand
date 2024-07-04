@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -43,7 +46,7 @@ class UserController extends Controller
     public function message()
     {
         $booking = Booking::select("bookings.*","categories.name as service_name")
-        ->leftjoin("categories","bookings.service_name","categories.id")
+        ->leftjoin("categories","bookings.service_id","categories.id")
         ->get();
         return view('user.main.message',compact('booking'));
     }
@@ -63,8 +66,16 @@ class UserController extends Controller
         return view('user.main.gallery',compact('photos'));
     }
 
-    public function detail(){
-        return view('user.main.detail');
+    public function detail($id){
+        $detail = Service::select('services.*','categories.name as category_name')
+        ->leftjoin('categories','services.category_id','categories.id')
+        ->where('services.id',$id)->first();
+        // dd($detail->toArray());
+        return view('user.main.detail',compact('detail'));
+    }
+    public function changePasswordPage()
+    {
+        return view('user.account.change');
     }
 
     public function bookingForm(){
@@ -79,6 +90,63 @@ class UserController extends Controller
         Booking::create($info);
         return redirect()->route('user#message')->with('successBooking','Booking created successfully!Please Wait Admin Response ...');
 
+    }
+
+    public function changePassword(Request $request)
+    {
+        $this->passwordValidationCheck($request);
+
+        $currentUserId = Auth::user()->id;
+        $user = User::select('password')->where('id', $currentUserId)->first();
+        $dbPassword =$user->password;//hash value
+
+        if(Hash::check($request->oldPassword,$dbPassword)){
+            $data = [
+                'password' => Hash::make($request->newPassword)
+            ];
+            User::where('id',Auth::user()->id)->update($data);
+
+            return redirect()->route('guest#homePage');
+
+                //  return view('Admin.account.change')->with(['changeSuccess' => 'Password Change Successful']);
+        }
+        return back()->with(['notMatch' => 'The Old Password Not Match.Try Again!']) ;
+
+    }
+
+    public function contact(Request $request)
+    {
+        $this->contactValidationCheck($request);
+        $userContact = $this->getMessage($request);
+        Contact::create($userContact);
+        return redirect()->route('user#contactUsPage')->with(['contactSuccess' => 'Your Message Send Successfully']);
+    }
+
+    private function contactValidationCheck($request){
+        $validationData = [
+            'name' => 'required',
+            'email' => 'required',
+            'feedback' => 'required'
+        ];
+
+        Validator::make($request->all(),$validationData)->validate();
+    }
+
+    private function getMessage($request)
+    {
+        return[
+            'name' => $request->name,
+            'email' => $request->email,
+            'feedback' => $request->feedback
+        ];
+    }
+
+    private function passwordValidationCheck($request){
+        Validator::make($request->all(),[
+            'oldPassword' =>'required | min:6' ,
+            'newPassword' =>'required | min:6'  ,
+            'confirmPassword' =>'required |min:6| same:newPassword'
+        ])->validate();
     }
 
     private function serviceValidationCheck($request){

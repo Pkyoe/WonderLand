@@ -44,7 +44,7 @@
                 </button>
                 <ul class="dropdown-menu " style="background-color: lightyellow;">
                   <li><a class="dropdown-item price"  href="{{ route('user#profilePage') }}"><i class="fa-solid fa-id-card me-2"></i>Profile</a></li>
-                  <li><a class="dropdown-item price"  href="#"><i class="fa-solid fa-key me-2"></i>Change Password</a></li>
+                  <li><a class="dropdown-item price"  href="{{ route('user#changePasswordPage') }}"><i class="fa-solid fa-key me-2"></i>Change Password</a></li>
                   <li><a class="dropdown-item price"  href="{{ route('user#message') }}"><i class="fa-solid fa-envelope me-2"></i>Booking History</a></li>
                   <form action="{{ route('logout') }}" method="POST">
                     @csrf

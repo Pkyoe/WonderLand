@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Booking;
 use App\Models\Service;
 use App\Models\Category;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +20,9 @@ class ServiceController extends Controller
             $categories = Category::get();
             $customer = User::get();
             $services = Service::get();
-            return view('Admin.dashboard.dashboard',compact('categories','customer','services'));
+            $booking = Booking::get();
+            $photo = Gallery::get();
+            return view('Admin.dashboard.dashboard',compact('categories','customer','services' , 'booking' , 'photo'));
         }
         return view('user.main.home');
 

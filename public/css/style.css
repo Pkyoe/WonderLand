@@ -6,6 +6,10 @@ body {
     font-style: normal;
 }
 
+.bg_color {
+    background-color: lightyellow;
+}
+
 .navBtn {
     background-color: darkviolet;
 }

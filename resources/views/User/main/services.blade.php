@@ -27,7 +27,7 @@
                     <p class="price">MMK{{ $s->price }}</p>
                     {{-- <p class="card-text">{{ $s->description }}</p> --}}
                     {{-- <button href="{{ route('user#bookingForm') }}"  class="btn btn-secondary navBtn" id="bookingBtn">Book Now</button> --}}
-                    <a href="{{ route('user#detailPage') }}" class="btn btn-secondary detail">View Details</a>
+                    <a href="{{ route('user#detailPage',$s->id) }}" class="btn btn-secondary detail">View Details</a>
                 </div>
             </div>
         </div>
