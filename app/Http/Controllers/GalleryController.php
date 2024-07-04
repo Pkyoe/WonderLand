@@ -14,7 +14,7 @@ class GalleryController extends Controller
     public function list()
     {
         $photos =Gallery::paginate(5);
-        return view('admin.gallery.list',compact('photos'));
+        return view('Admin.gallery.list',compact('photos'));
     }
 
     public function createPage(){
@@ -40,7 +40,8 @@ class GalleryController extends Controller
 
     public function update(Request $request){
         $this->dataValidationCheck($request ,'update');
-        $data = $this->requestGalleryInfo($request);
+        // $data = $this->requestGalleryInfo($request);
+        $gallery = Gallery::findorFail($request->id);
 
         if($request->hasFile('image')){
             $oldImageName = Gallery::where('id',$request->id)->first()->image;
@@ -51,10 +52,12 @@ class GalleryController extends Controller
 
             $fileName = uniqid().$request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('public',$fileName);
-            $data['image'] = $fileName;
+            $gallery['image'] = $fileName;
         }
 
-        Gallery::where('id',$request->id)->update($data);
+        // Gallery::where('id',$request->id)->update($data);
+        $gallery->description = $request->description;
+        $gallery->save();
         return redirect()->route('gallery#list')->with(['galleryUpdateSuccess'=>'Gallery Updated Successful']);
     }
 
@@ -69,12 +72,13 @@ class GalleryController extends Controller
             'description' => 'required'
         ];
 
-        $validationRule['image'] = $action == 'create' ? 'required' :'required|image';
+        $validationRule['image'] = $action == 'create' ? 'required' :'image';
 
         Validator::make($request->all(), $validationRule)->validate();
     }
 
     private function requestGalleryInfo($request){
+
         return [
             'image' => $request->image,
             'description' => $request->description

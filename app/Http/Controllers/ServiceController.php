@@ -71,7 +71,8 @@ class ServiceController extends Controller
     public function update(Request $request){
 
         $this->serviceValidationCheck($request , 'update');
-        $data = $this->requestServiceInfo($request);
+        // $data = $this->requestServiceInfo($request);
+        $service = Service::findorFail($request->serviceId);
 
         if($request->hasFile('serviceImage')){
             $oldImageName = Service::where('id',$request->serviceId)->first()->image;
@@ -82,10 +83,14 @@ class ServiceController extends Controller
 
             $fileName = uniqid().$request->file('serviceImage')->getClientOriginalName();
             $request->file('serviceImage')->storeAs('public',$fileName);
-            $data['image'] = $fileName;
+            $service['image'] = $fileName;
         }
 
-        Service::where('id',$request->serviceId)->update($data);
+        // Service::where('id',$request->serviceId)->update($data);
+        $service->category_id = $request->serviceName;
+        $service->price = $request->servicePrice;
+        $service->description = $request->serviceDescription;
+        $service->save();
         return redirect()->route('service#list')->with(['serviceUpdateSuccess'=>'Service Updated Successful']);
 
     }
