@@ -29,12 +29,32 @@ class BookingController extends Controller
         Contact::where('id',$id)->delete();
         return redirect()->route('feedback#list')->with(['feedbackDeleteSuccess'=>'Feedback Deleted Successfully']);
     }
-    public function orderAccept(Booking $booking)
+    public function accept($id)
     {
-        if($booking->status == 0 ){
-            return redirect()->back()->with(['orderAcceptSuccess'=>'Order Accepted Successfully']);
+        $booking = Booking::find($id);
+        if($booking){
+            $booking->status = 'accepted';
+            $booking->save();
+
+            return redirect()->route('booking#list')->with(['orderAcceptSuccess'=>'Order Accepted Successfully']);
         }
+        return response()->json(['message' => 'Order not found.'], 404);
+
     }
+
+    public function reject  ($id)
+    {
+        $booking = Booking::find($id);
+        if($booking){
+            $booking->status = 'rejected';
+            $booking->save();
+
+            return redirect()->route('booking#list')->with(['orderRejectSuccess'=>'Order Rejected Successfully']);
+        }
+        return response()->json(['message' => 'Order not found.'], 404);
+
+    }
+
 
 
 }

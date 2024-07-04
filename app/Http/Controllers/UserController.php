@@ -165,7 +165,7 @@ class UserController extends Controller
         return [
             'mr_name' => $request->mrName ,
             'miss_name' => $request->missName,
-            'service_name' => $request->serviceName,
+            'service_id' => $request->serviceName,
             'email' => $request->email ,
             'phone' => $request->phone ,
             'date' => $request->date ,

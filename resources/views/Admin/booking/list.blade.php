@@ -12,29 +12,22 @@
                 class="fas fa-download fa-sm text-white-50"></i> Create Category</a>
     </div>
 
-    @if (session('categorySuccess'))
+    @if (session('orderAcceptSuccess'))
     <div class="col-4 offset-8">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="fa-solid fa-check"></i> {{ session('categorySuccess') }}
+            <i class="fa-solid fa-check"></i> {{ session('orderAcceptSuccess') }}
         </div>
     </div>
 @endif
 
-@if (session('categoryUpdateSuccess'))
+@if (session('orderRejectSuccess'))
 <div class="col-4 offset-8">
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fa-solid fa-check"></i> {{ session('categoryUpdateSuccess') }}
+        <i class="fa-solid fa-check"></i> {{ session('orderRejectSuccess') }}
     </div>
 </div>
 @endif
 
-@if (session('categoryDeleteSuccess'))
-<div class="col-4 offset-8">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fa-solid fa-check"></i> {{ session('categoryDeleteSuccess') }}
-    </div>
-</div>
-@endif
     <!-- Content Row -->
 
     <div class="row d-flex justify-content-center">
@@ -63,8 +56,16 @@
                         <td>{{ $b->email }}</td>
                         <td>{{ $b->phone }}</td>
                         <td>{{ $b->date }}</td>
-                        <td><a href="" class="btn btn-success">Accept</a>
-                            <a href="" class="btn btn-danger">Reject</a>
+                        <td class="d-flex">
+                            <form action="{{ route('booking#accept',$b->id) }}" method="POST" class="mx-2">
+                                @csrf
+                                <button type="submit" class="btn btn-success">Accept</button>
+                            </form>
+
+                            <form action="{{ route('booking#reject',$b->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Reject</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

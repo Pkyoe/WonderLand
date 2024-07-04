@@ -23,8 +23,8 @@
                     <h5 class="card-title">{{ $s->category_name }}</h5>
                     <p class="price">MMK{{ $s->price }}</p>
                     {{-- <p class="card-text">{{ $s->description }}</p> --}}
-                    <a href="" class="btn btn-secondary navBtn">Book Now</a>
-                    <a href="" class="btn btn-secondary detail">View Details</a>
+                    {{-- <a href="" class="btn btn-secondary navBtn">Book Now</a> --}}
+                    <a href="{{ route('auth#loginPage') }}" class="btn btn-secondary detail">View Details</a>
                 </div>
             </div>
         </div>
