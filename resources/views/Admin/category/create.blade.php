@@ -20,7 +20,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="category" class="form-label">Category</label>
-                    <input name="categoryName" type="text" class="form-control @error('categoryName') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Category Name ...">
+                    <input name="categoryName" value="{{ old('categoryName') }}" type="text" class="form-control @error('categoryName') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Category Name ...">
                     @error('categoryName')
                     <div class="invalid-feedback text-danger">
                         {{$message }}

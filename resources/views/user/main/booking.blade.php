@@ -34,7 +34,7 @@
                     @csrf
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Mr Name</label>
-                      <input name="mrName" type="name" class="form-control" placeholder="Your Mr Name">
+                      <input name="mrName" value="{{ old('mrName') }}" type="name" class="form-control" placeholder="Your Mr Name">
                       @error('mrName')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -43,7 +43,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Miss Name</label>
-                        <input name="missName" type="name" class="form-control" placeholder="Your Miss Name">
+                        <input name="missName" value="{{ old('missName') }}" type="name" class="form-control" placeholder="Your Miss Name">
                         @error('missName')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -62,7 +62,7 @@
                       </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input name="email" type="email" class="form-control" placeholder="Your email">
+                        <input name="email" value="{{ old('email') }}" type="email" class="form-control" placeholder="Your email">
                         @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -71,7 +71,7 @@
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Phone</label>
-                        <input name="phone" type="phone" class="form-control" placeholder="Your phone">
+                        <input name="phone" value="{{ old('phone') }}" type="phone" class="form-control" placeholder="Your phone">
                         @error('phone')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -80,7 +80,7 @@
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Date</label>
-                        <input name="date" type="date" class="form-control" >
+                        <input name="date" value="{{ old('date') }}" type="date" class="form-control" >
                         @error('date')
                         <div class="invalid-feedback">
                             {{ $message }}

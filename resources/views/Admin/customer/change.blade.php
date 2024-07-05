@@ -60,7 +60,10 @@
 
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
-                    <input name="role" type="text" value="{{ old('role',$users->role) }}"  class="form-control @error('role') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Old Password ...">
+                    <select name="role" class="form-control">
+                        <option value="admin" @if ( $users->role == 'admin') selected @endif>Admin</option>
+                        <option value="user" @if ( $users->role == 'user') selected @endif>User</option>
+                    </select>
                     @error('role')
                     <div class="invalid-feedback text-danger">
                         {{$message }}

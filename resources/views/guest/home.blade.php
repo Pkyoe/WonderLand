@@ -9,8 +9,7 @@
     <div class="row min-vh-100 align-items-center align-content-center">
         <div class="col-md-6 ">
             <div class="text-center">
-                <img src="{{ asset('image/cover.jpg') }}" class="rounded-5 shadow-lg img-fluid" width="900px"
-                    alt="image">
+                <img src="{{ asset('image/photo.svg') }}" class="rounded-3 shadow-lg img-fluid" width="500px"  alt="image">
             </div>
         </div>
         <div class="col-md-6 order-md-first">

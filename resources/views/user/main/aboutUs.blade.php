@@ -1,80 +1,29 @@
 @extends('user.layout.master')
 
-@section('title', 'About Us')
+@section('title' , 'about')
 
 @section('content')
 
-<div class="container-lg mb-4" id="aboutUs">
-    <div class="row  min-vh-100 align-items-center align-content-center">
+<!-- about us start  -->
+<div class="container-lg  min-vh-100 " id="aboutUs">
+    <div class="row align-items-center align-content-center">
         <div class="col-md-12">
-            <div class="">
-                <h2 class="text-center mb-2" style="color:blueviolet">About Us</h2>
-                <div class="mt-6">
-                    <p class="fw-light fs-5 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eum hic quis, error dolorem, cumque natus voluptas praesentium impedit ducimus maxime fuga
-                        molestiae perspiciatis libero asperiores facere porro consectetur eveniet in. At
-                        velit, debitis minus quia nisi deleniti quae perferendis numquam assumenda asperiores
-                        quibusdam, eligendi ratione ducimus optio, quod iure! Voluptates voluptatibus quas earum
-                        quod odit incidunt, repellendus debitis commodi,
-                        dicta est aliquid. Mollitia nihil nemo aliquid veritatis quaerat? Fuga harum quasi ad
-                        numquam magni sunt omnis accusantium a placeat minus! Deleniti dolores qui praesentium, enim
-                        facilis, quibusdam, quisquam minus nihil culpa
-                        quidem est. Dolores sequi iste odio eveniet? Nesciunt debitis eius, dicta autem officiis
-                        expedita libero voluptatem deserunt itaque nemo odio dolor accusamus ea enim vel praesentium
-                        perferendis facere fuga nam suscipit temporibus.
-                        Accusantium molestias laboriosam natus sed quia ea sint qui autem modi consequatur, ducimus
-                        id et quam, veniam, facere ad. Soluta magnam cum, eaque cupiditate, iusto, sapiente
-                        laudantium excepturi adipisci dolor culpa necessitatibus?
-                        Quam aliquid magnam necessitatibus unde error similique mollitia corporis facere
-                        repudiandae! Optio vel nulla adipisci laborum nostrum quasi consequuntur eligendi quidem
-                        provident, odit sed voluptate quia excepturi magni dignissimos
-                        officiis, iure molestiae reprehenderit fugit quis omnis modi accusamus ex molestias. Dolore
-                        recusandae esse voluptate amet.</p>
+
+            <div class="d-flex">
+
+                <div class="mt-5 col-lg-6">
+                    <img src="{{ asset('image/couple.svg') }}" class="img-fluid">
+                </div>
+                <div class=" col align-self-center">
+                    <h5 class="text-center" style="color:blueviolet">About Us</h5>
+                    <p>Welcome to Dream, where dreams come true and love stories unfold. We are a dedicated team of passionate professionals committed to crafting unforgettable wedding experiences. Our mission is to transform your vision into reality, ensuring every detail reflects your unique love story.</p>
+                    <p>Founded in 2024, Dreams was born out of a love for love. Our founder, Swagger, envisioned a service where couples could find everything they needed for their special day under one roof. With a background in [relevant field, e.g., event planning, design], Swagger brought together a team of experts in planning, design, catering, and more to create a seamless and enchanting wedding experience.</p>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
+<!-- about us end  -->
 
-
-<!-- contact us start  -->
-{{-- <div class="container-lg " id="contactUs">
-    <div class="row align-items-center align-content-center">
-        <div class="col-md-12">
-            <h2 class="text-center" style="color:blueviolet">Contact Us</h2>
-            <p class="mt-3 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vel saepe
-                deserunt quaerat atque id, maxime officiis dolore nulla soluta expedita, et voluptatibus pariatur
-                culpa repellat corporis rerum delectus eaque!</p>
-            <div class="">
-
-                <div class="col-md-6 mt-5 align-items-center">
-                    <form action="" class="">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Your Feedback</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <button class="btn btn-secondary text-white navBtn">Send</button>
-                    </form>
-                </div>
-                <div class="col-md-6 mt-5">
-
-                    <p><i class="fa-solid fa-map-location me-2"></i> Address - Taunggyi</p>
-                    <p><i class="fa-solid fa-phone me-2"></i>Get In Touch - 09987654321</p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div> --}}
-<!-- contact us end  -->
 @endsection
-
-

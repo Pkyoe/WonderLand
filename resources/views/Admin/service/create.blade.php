@@ -42,7 +42,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input name="servicePrice" type="number" class="form-control @error('servicePrice') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Service Price ...">
+                    <input name="servicePrice" value="{{ old('servicePrice') }}" type="number" class="form-control @error('servicePrice') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Service Price ...">
                     @error('servicePrice')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="serviceDescription" class="form-control @error('serviceDescription') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Service Description ..."></textarea>
+                    <textarea name="serviceDescription"  class="form-control @error('serviceDescription') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Service Description ...">{{ old('serviceDescription') }}</textarea>
                     @error('serviceDescription')
                     <div class="invalid-feedback">
                         {{ $message }}

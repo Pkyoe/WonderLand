@@ -28,7 +28,7 @@
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Image Description ..."></textarea>
+                    <textarea name="description"  class="form-control @error('description') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Image Description ...">{{ old('description') }}</textarea>
                     @error('description')
                     <div class="invalid-feedback">
                         {{ $message }}
