@@ -26,6 +26,9 @@ use App\Http\Controllers\CustomerController;
         Route::get('/service',[GuestController::class,'servicePage'])->name('guest#servicePage');
         Route::get('/contact',[GuestController::class,'contactPage'])->name('guest#contactPage');
         Route::get('/404Page',[GuestController::class,'notFoundPage'])->name('guest#notFoundPage');
+        Route::get('check',[GuestController::class,'check'])->name('guest#check');
+        Route::get('guest/loginPage',[GuestController::class,'guestLoginPage'])->name("guest#loginPage");
+        Route::post('guest/login',[GuestController::class,'guestLogin'])->name("guest#login");
     });
 
     //guest route end

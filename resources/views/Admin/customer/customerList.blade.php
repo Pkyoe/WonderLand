@@ -9,8 +9,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 style="color: blueviolet;" class="h3 mb-0 ">Customer List</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+
     </div>
 
     @if (session('changeSuccess'))
@@ -66,7 +65,7 @@
                         <td>{{ $customer->phone  }}</td>
                         <td>{{ $customer->role  }}</td>
                         <td><a href="{{ route('customer#changeRolePage',$customer->id) }}" class="btn btn-success">Change Role</a>
-                            <a href="{{ route('customer#block',$customer->id )}}" class="btn btn-danger">Block</a>
+                            <a href="{{ route('customer#block',$customer->id )}}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
 
