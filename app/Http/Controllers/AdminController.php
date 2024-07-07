@@ -50,7 +50,9 @@ class AdminController extends Controller
             ];
             User::where('id',Auth::user()->id)->update($data);
 
-            return redirect()->route('guest#homePage');
+            Auth::guard('web')->logout();
+
+            return redirect()->route('auth#loginPage')->with('status', 'Password changed successfully! Please log in with your new password.');
 
                 //  return view('Admin.account.change')->with(['changeSuccess' => 'Password Change Successful']);
         }

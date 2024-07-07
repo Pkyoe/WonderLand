@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     <div class="container-lg mt-5 " id="contactUs">
         <div class="row align-items-center align-content-center">
             <div class="col-md-12">
@@ -14,8 +13,16 @@
                     you.</p>
                 <div class="">
 
+                    @if (session('contactSuccess'))
+                    <div class="col-4 offset-8">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fa-solid fa-check"></i> {{ session('contactSuccess') }}
+                        </div>
+                    </div>
+                    @endif
+
                     <div class="col-md-6 mt-5 align-items-center">
-                        <form action="" method="" class="card p-5 bg_color">
+                        <form action="{{ route('guest#contact') }}" method="POST" class="card p-5 bg_color">
                             @csrf
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -46,9 +53,7 @@
                                     </div>
                                 @enderror
                             </div>
-
-                                <a href="{{ route('auth#loginPage') }}" class="btn btn-secondary text-white navBtn">Send</a>
-
+                            <button type="submit" class="btn btn-secondary text-white navBtn">Send</button>
                         </form>
                     </div>
                     <div class="col-md-12 mt-5 d-flex justify-content-between">

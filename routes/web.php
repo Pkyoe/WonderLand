@@ -29,6 +29,8 @@ use App\Http\Controllers\CustomerController;
         Route::get('check',[GuestController::class,'check'])->name('guest#check');
         Route::get('guest/loginPage',[GuestController::class,'guestLoginPage'])->name("guest#loginPage");
         Route::post('guest/login',[GuestController::class,'guestLogin'])->name("guest#login");
+        Route::post('contact',[GuestController::class,'contact'])->name('guest#contact');
+
     });
 
     //guest route end
@@ -113,11 +115,14 @@ use App\Http\Controllers\CustomerController;
         Route::get('profile',[UserController::class,'profilePage'])->name('user#profilePage');
         Route::get('profile/edit',[UserController::class,'editProfilePage'])->name('user#editProfilePage');
         Route::post('update/{id}',[UserController::class,'update'])->name('user#profileUpdate');
+        Route::post('contact',[UserController::class,'contact'])->name('user#contact');
         Route::get('password/change',[UserController::class,'changePasswordPage'])->name('user#changePasswordPage');
         Route::post('password/change',[UserController::class,'changePassword'])->name('user#changePassword');
-        Route::post('contact',[UserController::class,'contact'])->name('user#contact');
+        Route::get('filter/{id}',[UserController::class,'filter'])->name('user#filter');
+
 
     });
+
      //user route end
 
 });

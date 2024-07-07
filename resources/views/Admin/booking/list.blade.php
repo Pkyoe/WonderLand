@@ -7,9 +7,8 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">Services Categories List</h1>
-        <a href="{{ route('category#createPage') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: blueviolet;  "><i
-                class="fas fa-download fa-sm text-white-50"></i> Create Category</a>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">Booking List</h1>
+
     </div>
 
     @if (session('orderAcceptSuccess'))
@@ -42,32 +41,36 @@
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Status</th>
                         <th></th>
 
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($booking as $b )
-                    <tr>
-                        <th scope="row">{{ $b->id }}</th>
-                        <td class=""> {{ $b->mr_name }}</td>
-                        <td class="">{{ $b->miss_name }}</td>
-                        <td class="">{{ $b->service_name }} </td>
-                        <td>{{ $b->email }}</td>
-                        <td>{{ $b->phone }}</td>
-                        <td>{{ $b->date }}</td>
-                        <td class="d-flex">
-                            <form action="{{ route('booking#accept',$b->id) }}" method="POST" class="mx-2">
-                                @csrf
-                                <button type="submit" class="btn btn-success">Accept</button>
-                            </form>
 
-                            <form action="{{ route('booking#reject',$b->id) }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-danger">Reject</button>
-                            </form>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row">{{ $b->id }}</th>
+                            <td class=""> {{ $b->mr_name }}</td>
+                            <td class="">{{ $b->miss_name }}</td>
+                            <td class="">{{ $b->service_name }} </td>
+                            <td>{{ $b->email }}</td>
+                            <td>{{ $b->phone }}</td>
+                            <td>{{ $b->date }}</td>
+                            <td>{{ $b->status }}</td>
+                            <td class="d-flex">
+                                <form action="{{ route('booking#accept',$b->id) }}" method="POST" class="mx-2">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Accept</button>
+                                </form>
+
+                                <form action="{{ route('booking#reject',$b->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Reject</button>
+                                </form>
+                            </td>
+                        </tr>
+
                     @endforeach
                 </tbody>
             </table>

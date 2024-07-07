@@ -11,12 +11,23 @@
 
         <div class="col-xl-10 col-lg-12 col-md-9">
 
+
             <div class="card o-hidden border-0 shadow-lg my-5 w-100" style="background-color: lightyellow;">
                 <div class="card-body p-0">
+
                     <!-- Nested Row within Card Body -->
                     <div class="row d-flex justify-content-center">
                         <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
                         <div class="col-lg-6">
+
+                            @if (session('status'))
+                                <div class="col-12 offset-6 mt-4">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="fa-solid fa-check"></i> {{ session('status') }}
+
+                                    </div>
+                                </div>
+                            @endif
                             <div class="p-5">
                                 <div class="text-center">
                                     <i class="fa-solid fa-panorama fa-2x mb-2" style="color:blueviolet;"></i>
@@ -42,11 +53,9 @@
                                     <button type="submit" class="w-100 btn btn-primary" style="background-color: blueviolet;">Login</button>
                                 </form>
                                 <hr>
+
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                </div>
-                                <div class="text-center">
-                                    <a class="small" href="register.html">Create an Account!</a>
+                                    <a class="small" href="{{ route('auth#registerPage') }}">Create an Account!</a>
                                 </div>
                             </div>
                         </div>

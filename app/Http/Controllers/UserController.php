@@ -57,8 +57,9 @@ class UserController extends Controller
                             ->get();
         // ->paginate(5);
         // dd($services->toArray());
+        $categories = Category::get();
 
-        return view('user.main.services',compact('services'));
+        return view('user.main.services',compact('services','categories'));
     }
 
     public function galleryPage(){
@@ -86,6 +87,7 @@ class UserController extends Controller
     public function create(Request $request){
         $this->serviceValidationCheck($request);
         $info = $this->requestBookingData($request);
+        // dd($info);
         Booking::create($info);
         return redirect()->route('user#message')->with('successBooking','Booking created successfully!Please Wait Admin Response ...');
 
@@ -105,7 +107,11 @@ class UserController extends Controller
             ];
             User::where('id',Auth::user()->id)->update($data);
 
-            return redirect()->route('guest#homePage');
+            Auth::guard('web')->logout();
+
+             return redirect()->route('auth#loginPage')->with('status', 'Password changed successfully! Please log in with your new password.');
+
+            // return redirect()->route('logout');
 
                 //  return view('Admin.account.change')->with(['changeSuccess' => 'Password Change Successful']);
         }
@@ -119,6 +125,15 @@ class UserController extends Controller
         $userContact = $this->getMessage($request);
         Contact::create($userContact);
         return redirect()->route('user#contactUsPage')->with(['contactSuccess' => 'Your Message Send Successfully']);
+    }
+
+    public function filter($categoryId)
+    {
+        $services = Service::select('services.*','categories.name as category_name')
+                            ->leftjoin('categories','services.category_id','categories.id')
+                            ->where('category_id',$categoryId)->orderBy('created_at','desc')->get();
+        $categories = Category::get();
+        return view('user.main.services',compact('services','categories'));
     }
 
     private function contactValidationCheck($request){
@@ -153,7 +168,6 @@ class UserController extends Controller
             'mrName' => 'required',
             'missName' => 'required',
             'serviceName' => 'required',
-            'email' => 'required',
             'phone' => 'required',
             'date' => 'required',
         ];

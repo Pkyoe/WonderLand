@@ -21,7 +21,7 @@
                 <img src="{{ asset('storage/'.$s->image) }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ $s->category_name }}</h5>
-                    <p class="price">MMK{{ $s->price }}</p>
+                    <p class="price">{{ $s->price }}MMK</p>
                     {{-- <p class="card-text">{{ $s->description }}</p> --}}
                     {{-- <a href="" class="btn btn-secondary navBtn">Book Now</a> --}}
                     <a href="{{ route('guest#check') }}" class="btn btn-secondary detail">View Details</a>

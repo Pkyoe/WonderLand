@@ -12,6 +12,8 @@
                 class="fas fa-download fa-sm text-white-50"></i> Create Category</a>
     </div> --}}
 
+
+
         @if (session('successBooking'))
             <div class="col-4 offset-8">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -20,30 +22,15 @@
             </div>
         @endif
 
-        @if (session('categoryUpdateSuccess'))
-            <div class="col-4 offset-8">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fa-solid fa-check"></i> {{ session('categoryUpdateSuccess') }}
-                </div>
-            </div>
-        @endif
-
-        @if (session('categoryDeleteSuccess'))
-            <div class="col-4 offset-8">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fa-solid fa-check"></i> {{ session('categoryDeleteSuccess') }}
-                </div>
-                {{-- style="background-color: rgb(250, 250, 196);" --}}
-            </div>
-        @endif
         <!-- Content Row -->
         @if (count($booking) != 0)
             <div class="row min-vh-100 d-flex justify-content-center mt-2 mb-3">
                 <div class=" col-lg-6  shadow-lg w-75 bg_color" >
+                    <a href="{{ route('user#bookingForm') }}"><button class="mb-4 mt-4 btn btn-secondary">Back</button></a>
                     <table class="table table-warning" >
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
+
                                 <th scope="col">Date</th>
                                 <th scope="col">Service Name</th>
 
@@ -54,8 +41,9 @@
                         </thead>
                         <tbody>
                             @foreach ($booking as $b)
+                            @if($b->email == Auth::user()->email)
                                 <tr>
-                                    <th scope="row">{{ $b->id }}</th>
+
                                     <td class="">{{ $b->date }}</td>
                                     <td class="">{{ $b->service_name }}</td>
 
@@ -64,6 +52,7 @@
                         <a href="" class="btn btn-danger">Reject</a>
                     </td> --}}
                                 </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

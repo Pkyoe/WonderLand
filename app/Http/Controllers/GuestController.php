@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Gallery;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class GuestController extends Controller
 {
@@ -35,6 +38,15 @@ class GuestController extends Controller
         return view('guest.contact');
     }
 
+    public function contact(Request $request)
+    {
+        $this->contactValidationCheck($request);
+        $userContact = $this->getMessage($request);
+        Contact::create($userContact);
+        return redirect()->route('guest#contactPage')->with(['contactSuccess' => 'Your Message Send Successfully']);
+    }
+
+
     public function notFoundPage(){
         return view('404Page');
     }
@@ -63,6 +75,25 @@ class GuestController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
+    }
+
+    private function contactValidationCheck($request){
+        $validationData = [
+            'name' => 'required',
+            'email' => 'required',
+            'feedback' => 'required'
+        ];
+
+        Validator::make($request->all(),$validationData)->validate();
+    }
+
+    private function getMessage($request)
+    {
+        return[
+            'name' => $request->name,
+            'email' => $request->email,
+            'feedback' => $request->feedback
+        ];
     }
 
 }
