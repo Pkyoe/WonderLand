@@ -52,6 +52,8 @@
                         <th scope="col">Image</th>
                         <th scope="col">Price</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Location</th>
+
                         <th></th>
 
                     </tr>
@@ -64,6 +66,7 @@
                         <td class="col-2 "><img class="w-75 rounded" src="{{ asset('storage/' . $s->image) }}"></td>
                         <td class="col-1">{{ $s->price }}MMK</td>
                         <td class="col-3">{{ $s->description }}</td>
+                        <td class="col-2">{{ $s->location }}</td>
                         <td><a href="{{ route("service#edit" , $s->id) }}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
                             <a href="{{ route("service#delete" , $s->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>

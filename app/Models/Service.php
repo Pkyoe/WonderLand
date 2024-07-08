@@ -13,6 +13,7 @@ class Service extends Model
         'category_id',
         'image',
         'price',
-        'description'
+        'description',
+        'location'
     ];
 }

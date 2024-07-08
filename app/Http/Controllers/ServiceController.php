@@ -90,6 +90,7 @@ class ServiceController extends Controller
         $service->category_id = $request->serviceName;
         $service->price = $request->servicePrice;
         $service->description = $request->serviceDescription;
+        $service->location = $request->location;
         $service->save();
         return redirect()->route('service#list')->with(['serviceUpdateSuccess'=>'Service Updated Successful']);
 
@@ -105,7 +106,8 @@ class ServiceController extends Controller
         $validationData = [
             'serviceName' => 'required',
             'servicePrice' => 'required',
-            'serviceDescription' => 'required'
+            'serviceDescription' => 'required',
+            'location' => 'required',
         ];
 
         $validationData['serviceImage'] = $action == 'create' ? 'required' : '';
@@ -119,6 +121,7 @@ class ServiceController extends Controller
             'image' => $request->serviceImage,
             'price' => $request->servicePrice,
             'description' => $request->serviceDescription ,
+            'location' => $request->location
         ];
     }
 }

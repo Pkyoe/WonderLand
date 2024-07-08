@@ -26,7 +26,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Name</label>
-                                <input name="name" type="text" class="form-control" id="exampleFormControlInput1"
+                                <input name="name" value="{{ old('name') }}" type="text" class="form-control  @error('name') is-invalid @enderror" id="exampleFormControlInput1"
                                     placeholder="name@example.com">
                                     @error('name')
                                     <div class="invalid-feedback">
@@ -36,7 +36,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input name="email" type="email" class="form-control" id="exampleFormControlInput1"
+                                <input name="email" value="{{ old('email') }}" type="email" class="form-control  @error('email') is-invalid @enderror" id="exampleFormControlInput1"
                                     placeholder="name@example.com">
                                     @error('email')
                                     <div class="invalid-feedback">
@@ -46,7 +46,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Your Feedback</label>
-                                <textarea name="feedback" class="form-control" placeholder="Enter Your Feedback" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea name="feedback" class="form-control  @error('feedback') is-invalid @enderror" placeholder="Enter Your Feedback" id="exampleFormControlTextarea1" rows="3">{{ old('feedback') }}</textarea>
                                 @error('feedback')
                                     <div class="invalid-feedback">
                                         {{ $message }}

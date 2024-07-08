@@ -58,6 +58,15 @@
                     </div>
                 @enderror
                 </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Location</label>
+                    <input name="location" value="{{ old('location') }}" type="text" class="form-control @error('location') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Yuor  Location ...">
+                    @error('location')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+                </div>
                 <button type="submit" class="btn btn-secondary border" style="background-color: blueviolet;">Create Service</button>
                 <a href="{{ route('service#list') }}" class="btn btn-secondary border" style="background-color: limegreen;">Cancel</a>
 

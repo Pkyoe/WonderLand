@@ -12,16 +12,12 @@
                 <img src="{{ asset('storage/'.$detail->image) }}" alt="" class="w-100 rounded-lg">
                 <div class="col-lg-7 ms-5">
                     <h5 class="">{{ $detail->category_name }}</h5>
-                    <p class="price">MMK {{ $detail->price }}</p>
-                    <p class="">Include Package</p>
-                    <p>{{ $detail->description }}</p>
-                    {{-- <ul>
-                        <li>Photography Services</li>
-                        <li>Videography Services</li>
-                        <li>Wedding Planning and Coordination</li>
-                        <li>Floral Arrangements</li>
-                        <li>Music and Entertainment</li>
-                    </ul> --}}
+                    <p class="price"><i class="fa-solid fa-money-bill-wave"></i> {{ $detail->price }} MMK</p>
+                    <p class="fw-bold"><i class="fa-solid fa-box"></i> Include Package</p>
+                    <p class="price">{{ $detail->description }}</p>
+
+                    <p class="fw-bold"><i class="fa-solid fa-map-location-dot"></i> Location </p>
+                    <p class="price">Kalaw</p>
 
                     <a href="{{ route('user#bookingForm') }}" class="btn btn-secondary navBtn">Book Now</a>
                     <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail">Cancel</a>
