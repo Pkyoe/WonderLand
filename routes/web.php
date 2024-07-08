@@ -40,7 +40,7 @@ use App\Http\Controllers\CustomerController;
 
 
     Route::get('dashboard',[ServiceController::class,'dashboardPage'])->name('admin#dashboard');
-    Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+    Route::middleware(['auth:sanctum'])->group(function () {
         //check admin or user
         Route::middleware(['isAdmin'])->group(function(){
 

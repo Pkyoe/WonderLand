@@ -109,7 +109,7 @@ class UserController extends Controller
 
             Auth::guard('web')->logout();
 
-             return redirect()->route('auth#loginPage')->with('status', 'Password changed successfully! Please log in with your new password.');
+            return redirect()->route('auth#loginPage')->with('status', 'Password changed successfully! Please log in with your new password.');
 
             // return redirect()->route('logout');
 

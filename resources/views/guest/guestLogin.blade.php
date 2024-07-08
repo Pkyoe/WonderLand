@@ -42,12 +42,7 @@
                                     <button type="submit" class="w-100 btn btn-primary" style="background-color: blueviolet;">Login</button>
                                 </form>
                                 <hr>
-                                <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                </div>
-                                <div class="text-center">
-                                    <a class="small" href="register.html">Create an Account!</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>

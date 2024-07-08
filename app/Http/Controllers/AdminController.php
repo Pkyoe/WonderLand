@@ -54,7 +54,6 @@ class AdminController extends Controller
 
             return redirect()->route('auth#loginPage')->with('status', 'Password changed successfully! Please log in with your new password.');
 
-                //  return view('Admin.account.change')->with(['changeSuccess' => 'Password Change Successful']);
         }
         return back()->with(['notMatch' => 'The Old Password Not Match.Try Again!']) ;
 
