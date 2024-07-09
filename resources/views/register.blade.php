@@ -23,11 +23,7 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Name</label>
-<<<<<<< HEAD
                                     <input name="name" value="{{ old('name') }}" type="text" class="form-control" id="exampleInputEmail1"
-=======
-                                    <input name="name" value="{{old('name')}}" type="text" class="form-control" id="exampleInputEmail1"
->>>>>>> abdbb2de84da364e955e3c039dfde86497d4909c
                                         aria-describedby="emailHelp" placeholder="Enter Your Name">
                                         @error('name')
                                         <small class="text-danger">{{ $message }}</small>
@@ -36,11 +32,7 @@
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-<<<<<<< HEAD
                                     <input name="email" value="{{ old('email') }}" type="email" class="form-control" id="exampleInputEmail1"
-=======
-                                    <input name="email" value="{{old('email')}}" type="email" class="form-control" id="exampleInputEmail1"
->>>>>>> abdbb2de84da364e955e3c039dfde86497d4909c
                                         aria-describedby="emailHelp" placeholder="Enter Your Email">
                                         @error('email')
                                         <small class="text-danger">{{ $message }}</small>
@@ -49,11 +41,7 @@
 
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">Phone</label>
-<<<<<<< HEAD
                                     <input name="phone" value="{{ old('phone') }}" type="number" class="form-control" id="exampleInputEmail1"
-=======
-                                    <input name="phone" value="{{old('phone')}}" type="number" class="form-control" id="exampleInputEmail1"
->>>>>>> abdbb2de84da364e955e3c039dfde86497d4909c
                                         aria-describedby="emailHelp" placeholder="Enter Your Phone">
                                         @error('phone')
                                         <small class="text-danger">{{ $message }}</small>
@@ -81,7 +69,7 @@
                                 <button type="submit" class="btn btn-primary w-100"
                                     style="background-color: blueviolet;">Register</button>
                             </form>
-                            <hr>g
+                            <hr>
                             <div class="text-center">
                                 <a class="small" href="{{ route('auth#loginPage') }}">Already have an account? Login!</a>
                             </div>
