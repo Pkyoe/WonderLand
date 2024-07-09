@@ -23,7 +23,7 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Name</label>
-                                    <input name="name" type="text" class="form-control" id="exampleInputEmail1"
+                                    <input name="name" value="{{old('name')}}" type="text" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter Your Name">
                                         @error('name')
                                         <small class="text-danger">{{ $message }}</small>
@@ -32,7 +32,7 @@
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                                    <input name="email" value="{{old('email')}}" type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter Your Email">
                                         @error('email')
                                         <small class="text-danger">{{ $message }}</small>
@@ -41,7 +41,7 @@
 
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">Phone</label>
-                                    <input name="phone" type="number" class="form-control" id="exampleInputEmail1"
+                                    <input name="phone" value="{{old('phone')}}" type="number" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter Your Phone">
                                         @error('phone')
                                         <small class="text-danger">{{ $message }}</small>
