@@ -69,7 +69,7 @@
                                 <button type="submit" class="btn btn-primary w-100"
                                     style="background-color: blueviolet;">Register</button>
                             </form>
-                            <hr>
+                            <hr>g
                             <div class="text-center">
                                 <a class="small" href="{{ route('auth#loginPage') }}">Already have an account? Login!</a>
                             </div>
