@@ -16,6 +16,7 @@
                     Filter Service
                     </button>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('user#servicePage') }}">All</a></li>
                         @foreach ($categories as $c)
                         <li><a class="dropdown-item" href="{{ route('user#filter',$c->id) }}">{{ $c->name }}</a></li>
                         @endforeach

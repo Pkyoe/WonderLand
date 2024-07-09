@@ -1,6 +1,6 @@
 @extends('Admin.layout.master')
 
-@section('title','customer list')
+@section('title','admin list')
 
 @section('content')
 
@@ -8,7 +8,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">Customer List</h1>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">Admin List</h1>
 
     </div>
 
@@ -45,20 +45,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($customers as $customer )
-                    @if ($customer->role == 'user')
-
+                    @foreach ($admin as $a )
+                    @if (Auth::user()->id == $a->id)
                     <tr>
-                        <th scope="row">{{ $customer->id  }}</th>
-                        <td>{{ $customer->name }}</td>
-                        <td>{{ $customer->email }}</td>
-                        <td>{{ $customer->phone  }}</td>
-                        <td>{{ $customer->role  }}</td>
-                        <td><a href="{{ route('customer#changeRolePage',$customer->id) }}" class="btn btn-success">Change Role</a>
-                            <a href="{{ route('customer#block',$customer->id )}}" class="btn btn-danger">Delete</a>
+                        <th scope="row">{{ $a->id  }}</th>
+                        <td>{{ $a->name }}</td>
+                        <td>{{ $a->email }}</td>
+                        <td>{{ $a->phone  }}</td>
+                        <td>{{ $a->role  }}</td>
+                        {{-- <td><a href="" class="btn btn-success">Change Role</a>
+                            <a href="" class="btn btn-danger">Block</a>
+                        </td> --}}
+                    </tr>
+                    @endif
+                    @if(Auth::user()->id != $a->id && $a->role == 'admin')
+                    <tr>
+                        <th scope="row">{{ $a->id  }}</th>
+                        <td>{{ $a->name }}</td>
+                        <td>{{ $a->email }}</td>
+                        <td>{{ $a->phone  }}</td>
+                        <td>{{ $a->role  }}</td>
+                        <td><a href="{{ route('customer#changeRolePage',$a->id) }}" class="btn btn-success">Change Role</a>
+                            <a href="{{ route('customer#block',$a->id )}}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endif
+
 
                     @endforeach
 

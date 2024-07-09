@@ -17,7 +17,7 @@
                     <p class="price">{{ $detail->description }}</p>
 
                     <p class="fw-bold"><i class="fa-solid fa-map-location-dot"></i> Location </p>
-                    <p class="price">Kalaw</p>
+                    <p class="price">{{ $detail->location }}</p>
 
                     <a href="{{ route('user#bookingForm') }}" class="btn btn-secondary navBtn">Book Now</a>
                     <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail">Cancel</a>

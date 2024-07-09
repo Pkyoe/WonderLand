@@ -59,6 +59,12 @@ class AdminController extends Controller
 
     }
 
+    public function adminListPage()
+    {
+        $admin = User::get();
+        return view('Admin.customer.adminList',compact('admin'));
+    }
+
     private function getUserData($request){
         return [
             'name' => $request-> userName,

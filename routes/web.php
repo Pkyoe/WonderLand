@@ -50,6 +50,7 @@ use App\Http\Controllers\CustomerController;
             Route::post('update/{id}',[AdminController::class,'update'])->name('admin#profileUpdate');
             Route::get('password/change',[AdminController::class,'changePasswordPage'])->name('admin#changePasswordPage');
             Route::post('password/change',[AdminController::class,'changePassword'])->name('admin#changePassword');
+            Route::get('list',[AdminController::class,'adminListPage'])->name('admin#list');
 
         });
 
