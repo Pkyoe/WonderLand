@@ -23,7 +23,7 @@ class GuestController extends Controller
     }
 
     public function galleryPage(){
-        $photos = Gallery::paginate(5);
+        $photos = Gallery::paginate(6);
         return view('guest.gallery' ,compact('photos'));
     }
 

@@ -63,7 +63,7 @@ class UserController extends Controller
     }
 
     public function galleryPage(){
-        $photos =Gallery::paginate(5);
+        $photos =Gallery::paginate(6);
         return view('user.main.gallery',compact('photos'));
     }
 
