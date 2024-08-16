@@ -23,6 +23,11 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <style>
+        p.small.text-muted{
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -65,14 +70,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa-solid fa-box-open text-dark"></i>
-                    <span class="text-dark">Services</span>
+                    <span class="text-dark">ဝန်ဆောင်မှုများ</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item text-dark" href="{{ route('category#list') }}">Categories</a>
-                        <a class="collapse-item text-dark" href="{{ route('service#list') }}">Services List</a>
-                        <a class="collapse-item text-dark" href="{{ route('service#createPage') }}">Create Services</a>
+                        <a class="collapse-item text-dark" href="{{ route('category#list') }}">အမျိုးအစားများ</a>
+                        <a class="collapse-item text-dark" href="{{ route('service#list') }}">ဝန်ဆောင်မှုများ</a>
+                        <a class="collapse-item text-dark" href="{{ route('service#createPage') }}">ဝန်ဆောင်မှုဖန်တီးရန်</a>
 
                     </div>
                 </div>
@@ -83,14 +88,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-image text-dark"></i>
-                    <span class="text-dark">Gallery</span>
+                    <span class="text-dark">ဓာတ်ပုံပြခန်း</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="{{ route('gallery#createPage') }}">Uplode Photo</a>
-                        <a class="collapse-item" href="{{ route('gallery#list') }}">Photo List</a>
+                        <a class="collapse-item" href="{{ route('gallery#createPage') }}">ဓာတ်ပုံတင်ရန်</a>
+                        <a class="collapse-item" href="{{ route('gallery#list') }}">ဓာတ်ပုံများ</a>
 
                     </div>
                 </div>
@@ -100,13 +105,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-users text-dark"></i>
-                    <span class="text-dark">Customer Management</span>
+                    <span class="text-dark">ဖောက်သည်စီမံခန့်ခွဲမှု</span>
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('customer#list') }}">Customer List</a>
-                        <a class="collapse-item" href="{{ route('admin#list') }}">Admin List</a>
+                        <a class="collapse-item" href="{{ route('customer#list') }}">ဖောက်သည်စာရင်း</a>
+                        <a class="collapse-item" href="{{ route('admin#list') }}">အုပ်ချုပ်သူစာရင်း</a>
                     </div>
                 </div>
             </li>
@@ -115,13 +120,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesTwo"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-envelopes-bulk text-dark"></i>
-                    <span class="text-dark">Booking</span>
+                    <span class="text-dark">ကြိုတင်စာရင်းပေးခြင်း</span>
                 </a>
                 <div id="collapseUtilitiesTwo" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('booking#list') }}">Booking List</a>
-                        <a class="collapse-item" href="{{ route('feedback#list') }}">Feedback List</a>
+                        <a class="collapse-item" href="{{ route('booking#list') }}">ကြိုတင်စာရင်းမှတ်တမ်း</a>
+                        <a class="collapse-item" href="{{ route('feedback#list') }}">အကြံပြုစာများ</a>
 
                     </div>
                 </div>
@@ -149,7 +154,7 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <h4 class="" style="color: blueviolet">Welcome Wedding Serive Admin Dashboard.</h4>
+                    <h4 class="" style="color: blueviolet">မင်္ဂလာဆောင်ဝန်ဆောင်မှု Admin  Dashboard မှကြိုဆိုပါသည်။</h4>
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -177,21 +182,19 @@
                                 <i class="fa-solid fa-arrow-down"></i>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            <ul style="z-index: 99999!important;" class=" dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item m-2" href="{{ route('admin#profilePage') }}">
-                                    <i class="fa-solid fa-id-card"></i> Profile
+                                    <i class="fa-solid fa-id-card"></i> ပရိုဖိုင်
                                 </a>
                                 <a class="dropdown-item m-2" href="{{ route('admin#changePasswordPage') }}">
-                                    <i class="fa-solid fa-key"></i> Change Password
+                                    <i class="fa-solid fa-key"></i> စကားဝှက်ပြောင်းရန်
                                 </a>
 
-                                <form action="{{ route('logout') }}" method="POST">
+                                <form action="{{ route('logout') }}" class="p-3" method="POST">
                                     @csrf
-                                    <a class="dropdown-item mt-3" href="#">
                                         <button class="w-100 btn btn-primary" type="submit"
-                                            data-dismiss="modal"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</button>
-                                    </a>
+                                            data-dismiss="modal"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>အကောင့်ထွက်ရန်</button>
                                 </form>
 
 
@@ -245,10 +248,10 @@
                 <div class="modal-footer">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <button class="btn btn-primary" type="submit" data-dismiss="modal">Logout</button>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ရန်</button>
+                        <button class="btn btn-primary" type="submit" data-dismiss="modal">အကောင့်ထွက်ရန်</button>
 
-                        {{-- <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a> --}}
+                        {{-- <a class="btn btn-primary" href="{{ route('logout') }}">အကောင့်ထွက်ရန်</a> --}}
                     </form>
                 </div>
             </div>
@@ -271,7 +274,8 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    @yield('script')
 </body>
 
 </html>

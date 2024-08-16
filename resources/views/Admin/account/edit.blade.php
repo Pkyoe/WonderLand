@@ -8,9 +8,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">Edit Profile Information</h1>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">ကိုယ်ရေးအချက်အလက်ပြုပြင်ရန်</h1>
         <a href="{{ route('customer#list') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i>Customer List</a>
+                class="fas fa-download fa-sm text-white-50"></i>ဖောက်သည်စာရင်း</a>
     </div>
 
 
@@ -28,8 +28,8 @@
             <form action="{{ route('admin#profileUpdate', Auth::user()->id)}}" method="post">
                 @csrf
                 <div class="mb-3">
-                    <label for="userName" class="form-label">Name</label>
-                    <input name="userName" type="text" value="{{ old('userName',Auth::user()->name) }}" class="form-control @error('userName') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Old Password ...">
+                    <label for="userName" class="form-label">အမည်</label>
+                    <input name="userName" type="text" value="{{ old('userName',Auth::user()->name) }}" class="form-control @error('userName') is-invalid @enderror" id="exampleFormControlInput1" placeholder="သင်၏အမည်ရိုက်ထည့်ပါ။ ...">
                     @error('userName')
                     <div class="invalid-feedback text-danger">
                         {{$message }}
@@ -38,8 +38,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input name="email" type="email" value="{{ old('email',Auth::user()->email) }}" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Category Name ...">
+                    <label for="email" class="form-label">အီးမေးလ်လိပ်စာ</label>
+                    <input name="email" type="email" value="{{ old('email',Auth::user()->email) }}" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1" placeholder="သင်၏အီးမေလ်ရိုက်ထည့်ပါ။ ...">
                     @error('email')
                     <div class="invalid-feedback text-danger">
                         {{$message }}
@@ -48,8 +48,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input name="phone" type="number" value="{{ old('phone',Auth::user()->phone) }}" class="form-control @error('phone') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Category Name ...">
+                    <label for="phone" class="form-label">ဖုန်းနံပါတ်</label>
+                    <input name="phone" type="number" value="{{ old('phone',Auth::user()->phone) }}" class="form-control @error('phone') is-invalid @enderror" id="exampleFormControlInput1" placeholder="သင်၏ဖုန်းနံပါတ်ရိုက်ထည့်ပါ။ ...">
                     @error('phone')
                     <div class="invalid-feedback text-danger">
                         {{$message }}
@@ -58,16 +58,16 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="role" class="form-label">Role</label>
-                    <input name="role" type="text" value="{{ old('role',Auth::user()->role) }}" disabled class="form-control @error('role') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter Old Password ...">
+                    <label for="role" class="form-label">အခန်းကဏ္ဍ</label>
+                    <input name="role" type="text" value="{{ old('role',Auth::user()->role) }}" disabled class="form-control @error('role') is-invalid @enderror" id="exampleFormControlInput1" placeholder="အခန်းကဏ္ဍရွေးချယ်ပါ။ ...">
                     @error('role')
                     <div class="invalid-feedback text-danger">
                         {{$message }}
                     </div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary" style="background-color: blueviolet;">Update</button>
-                <a href="{{ route('admin#dashboard') }}" class="btn btn-secondary border" style="background-color: limegreen;">Cancel</a>
+                <button type="submit" class="btn btn-primary" style="background-color: blueviolet;">အသစ်ပြောင်းလဲခြင်း</button>
+                <a href="{{ route('admin#dashboard') }}" class="btn btn-secondary border" style="background-color: limegreen;">ပယ်ဖျက်ခြင်း</a>
             </form>
 
         </div>

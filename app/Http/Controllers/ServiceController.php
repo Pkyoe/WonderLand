@@ -53,7 +53,7 @@ class ServiceController extends Controller
         $data['image'] = $fileName;
 
         Service::create($data);
-        return redirect()->route('service#list')->with(['serviceCreateSuccess'=>'Service Created Successful']);
+        return redirect()->route('service#list')->with(['serviceCreateSuccess'=>'ဝန်ဆောင်မှုဖန်တီခြင်းအောင်မြင်ပါသည်။']);
 
     }
 
@@ -92,14 +92,14 @@ class ServiceController extends Controller
         $service->description = $request->serviceDescription;
         $service->location = $request->location;
         $service->save();
-        return redirect()->route('service#list')->with(['serviceUpdateSuccess'=>'Service Updated Successful']);
+        return redirect()->route('service#list')->with(['serviceUpdateSuccess'=>'ဝန်ဆောင်မှုဖန်တီခြင်းအောင်မြင်ပါသည်။']);
 
     }
 
     public function delete($id){
 
         Service::where('id',$id)->delete();
-        return redirect()->route('service#list')->with(['serviceDeleteSuccess'=>'Service Deleted Successful']);
+        return redirect()->route('service#list')->with(['serviceDeleteSuccess'=>'ဝန်ဆောင်မှုပယ်ဖျက်ခြင်းအောင်မြင်ပါသည်။']);
     }
     private function serviceValidationCheck($request , $action){
 

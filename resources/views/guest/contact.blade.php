@@ -7,11 +7,12 @@
     <div class="container-lg mt-5 " id="contactUs">
         <div class="row align-items-center align-content-center">
             <div class="col-md-12">
-                <h2 class="text-center" style="color:blueviolet">Contact Us</h2>
-                <p class="mt-3 ">We would love to help make your dream wedding a reality. Whether you have questions about
-                    our services, want to schedule a consultation, or need assistance with planning, our team is here for
-                    you.</p>
-                <div class="">
+                <h2 class="text-center" style="color:blueviolet">ဆက်သွယ်ရန်</h2>
+                <p class="mt-3 ">သင့်အိပ်မက်ထဲက မင်္ဂလာဆောင်ပုံရိပ်များကို အမှန်တကယ်ဖြစ်လာစေရန် ကျွန်ုပ်တို့ရည်ရွယ်ပါသည်။
+                    ကျွန်ုပ်တို့၏ ဝန်ဆောင်မှုများအကြောင်းမေးမြန်းလိုသောအခါ၊ အတိုင်ပင်ခံမှုကို ဆွေးနွေးရန်စီစဉ်လိုသောအခါ၊ 
+                    သို့မဟုတ် အစီအစဉ်ရေးဆွဲခြင်းတွင် အကူအညီလိုအပ်သောအခါ၌ ကျွန်ုပ်တို့၏ အဖွဲ့သည် သင့်အတွက် အမြဲရှိပါသည်။
+                </p>
+                 <div class="">
 
                     @if (session('contactSuccess'))
                     <div class="col-4 offset-8">
@@ -25,9 +26,9 @@
                         <form action="{{ route('guest#contact') }}" method="POST" class="card p-5 bg_color">
                             @csrf
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                                <label for="exampleFormControlInput1" class="form-label">အမည်</label>
                                 <input name="name" value="{{ old('name') }}" type="text" class="form-control  @error('name') is-invalid @enderror" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                    placeholder="သင်၏အမည်ရေးပါ။">
                                     @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -35,9 +36,9 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                <label for="exampleFormControlInput1" class="form-label">အီးမေးလ်လိပ်စာ</label>
                                 <input name="email" value="{{ old('email') }}" type="email" class="form-control  @error('email') is-invalid @enderror" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                    placeholder="သင်၏အီးမေလ်ရေးပါ။">
                                     @error('email')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -45,28 +46,28 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Your Feedback</label>
-                                <textarea name="feedback" class="form-control  @error('feedback') is-invalid @enderror" placeholder="Enter Your Feedback" id="exampleFormControlTextarea1" rows="3">{{ old('feedback') }}</textarea>
+                                <label for="exampleFormControlTextarea1" class="form-label">သင်၏အကြံပြုစာ</label>
+                                <textarea name="feedback" class="form-control  @error('feedback') is-invalid @enderror" placeholder="သင်၏အကြံပြုစာရေးပါ။" id="exampleFormControlTextarea1" rows="3">{{ old('feedback') }}</textarea>
                                 @error('feedback')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-secondary text-white navBtn">Send</button>
+                            <button type="submit" class="btn btn-secondary text-white navBtn">ပေးပို့ရန်</button>
                         </form>
                     </div>
                     <div class="col-md-12 mt-5 d-flex justify-content-between">
 
                         <div class="">
-                            <p><i class="fa-solid fa-map-location me-2"></i> Address - Taunggyi</p>
-                            <p><i class="fa-solid fa-phone me-2"></i>Get In Touch - 09987654321</p>
+                            <p><i class="fa-solid fa-map-location me-2"></i> နေရပ်လိပ်စာ - Hinthada</p>
+                            <p><i class="fa-solid fa-phone me-2"></i>ဆက်သွယ်ရန်နံပါတ် - 09987654321</p>
                         </div>
 
                         <div class="">
-                            <h5> Office Hours</h5>
+                            <h5> ရုံးချိန်</h5>
                             <ul>
-                                <li> Monday - Friday: 9:00 AM - 6:00 PM</li>
+                                <li> Monday - Friday: 8:00 AM - 6:00 PM</li>
                                 <li>Saturday: 10:00 AM - 4:00 PM</li>
                                 <li> Sunday: By Appointment Only</li>
                             </ul>

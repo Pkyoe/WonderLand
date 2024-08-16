@@ -36,26 +36,26 @@
                                 <form action="{{ route('login') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label" style="color: blueviolet;">Email address</label>
+                                        <label for="exampleInputEmail1" class="form-label" style="color: blueviolet;">အီးမေးလ်လိပ်စာ</label>
                                         <input name="email" value="{{ old('email') }}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                         @error('email')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label" style="color: blueviolet;">Password</label>
+                                        <label for="exampleInputPassword1" class="form-label" style="color: blueviolet;">စကားဝှက်</label>
                                         <input name="password" type="password" class="form-control" id="exampleInputPassword1">
                                         @error('password')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                     </div>
 
-                                    <button type="submit" class="w-100 btn btn-primary" style="background-color: blueviolet;">Login</button>
+                                    <button type="submit" class="w-100 btn btn-primary" style="background-color: blueviolet;">အကောင့်ဝင်ရန်</button>
                                 </form>
                                 <hr>
 
                                 <div class="text-center">
-                                    <a class="small" href="{{ route('auth#registerPage') }}">Create an Account!</a>
+                                    <a class="small" href="{{ route('auth#registerPage') }}">အကောင့်တစ်ခုဖန်တီးပါ</a>
                                 </div>
                             </div>
                         </div>

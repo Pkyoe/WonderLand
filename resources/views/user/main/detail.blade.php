@@ -13,14 +13,14 @@
                 <div class="col-lg-7 ms-5">
                     <h5 class="">{{ $detail->category_name }}</h5>
                     <p class="price"><i class="fa-solid fa-money-bill-wave"></i> {{ $detail->price }} MMK</p>
-                    <p class="fw-bold"><i class="fa-solid fa-box"></i> Include Package</p>
+                    <p class="fw-bold"><i class="fa-solid fa-box"></i> ပါဝင်သည့်အမျိုးအမည်</p>
                     <p class="price">{{ $detail->description }}</p>
 
-                    <p class="fw-bold"><i class="fa-solid fa-map-location-dot"></i> Location </p>
+                    <p class="fw-bold"><i class="fa-solid fa-map-location-dot"></i> တည်နေရာ </p>
                     <p class="price">{{ $detail->location }}</p>
 
-                    <a href="{{ route('user#bookingForm') }}" class="btn btn-secondary navBtn">Book Now</a>
-                    <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail">Cancel</a>
+                    <a href="{{ route('user#bookingForm') }}" class="btn btn-secondary navBtn">ယခုစာရင်း‌သွင်းရန်</a>
+                    <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail">ပယ်ဖျက်ရန်</a>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="text-center mt-4">
-                <h2>Our Services</h2>
+                <h2>ဝန်ဆောင်မှုများ</h2>
             </div>
         </div>
 
@@ -23,8 +23,8 @@
                     <h5 class="card-title">{{ $s->category_name }}</h5>
                     <p class="price">{{ $s->price }}MMK</p>
                     {{-- <p class="card-text">{{ $s->description }}</p> --}}
-                    {{-- <a href="" class="btn btn-secondary navBtn">Book Now</a> --}}
-                    <a href="{{ route('guest#check') }}" class="btn btn-secondary detail">View Details</a>
+                    {{-- <a href="" class="btn btn-secondary navBtn">ဘိုကင်ယူရန်</a> --}}
+                    <a href="{{ route('guest#check') }}" class="btn btn-secondary detail">အသေးစိတ်အချက်အလက်</a>
                 </div>
             </div>
         </div>

@@ -7,8 +7,8 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">Services List</h1>
-        <a href="{{ route('service#createPage') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: blueviolet"><i class="fa-solid fa-circle-plus"></i> Create Service</a>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">ဝန်ဆောင်မှုများ</h1>
+        <a href="{{ route('service#createPage') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: blueviolet"><i class="fa-solid fa-circle-plus"></i>ဝန်ဆောင်မှုဖန်တီးရန်</a>
     </div>
 
 
@@ -40,19 +40,19 @@
 
 
     @if (count($services) == 0)
-        <h5 class="text-center ">There is no service here !</h5>
+        <h5 class="text-center ">ဤနေရာတွင် ဝန်ဆောင်မှုမရှိပါ။</h5>
     @else
     <div class="row d-flex justify-content-center">
         <div class="col-lg-12">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Service Name</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Location</th>
+                        <th scope="col">နံပါတ်</th>
+                        <th scope="col">ဝန်ဆောင်မှုအမည်</th>
+                        <th scope="col">ဓာတ်ပုံ</th>
+                        <th scope="col">ဈေးနှုန်း</th>
+                        <th scope="col">ဖော်ပြချက်</th>
+                        <th scope="col">တည်နေရာ</th>
 
                         <th></th>
 

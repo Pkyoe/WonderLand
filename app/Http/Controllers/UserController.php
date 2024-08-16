@@ -40,7 +40,7 @@ class UserController extends Controller
         $updateData = $this->getUserData($request);
         // dd($updateData);
         User::where('id',$id)->update($updateData);
-        return redirect()->route('user#profilePage')->with(['updateSuccess' => 'Profile Update Success']);
+        return redirect()->route('user#profilePage')->with(['updateSuccess' => 'ကိုယ်ရေးအချက်အလက်ပြင်ဆင်မှုအောင်မြင်ပါသည်။']);
     }
 
     public function message()
@@ -89,7 +89,7 @@ class UserController extends Controller
         $info = $this->requestBookingData($request);
         // dd($info);
         Booking::create($info);
-        return redirect()->route('user#message')->with('successBooking','Booking created successfully!Please Wait Admin Response ...');
+        return redirect()->route('user#message')->with('successBooking','ကြိုတင်စာရင်းသွင်းမှုကို အောင်မြင်စွာ ဖန်တီးပြီးပါပြီ။ အုပ်ချုပ်သူ၏ အဖြေကို စောင့်ပါ...');
 
     }
 
@@ -109,13 +109,13 @@ class UserController extends Controller
 
             Auth::guard('web')->logout();
 
-            return redirect()->route('auth#loginPage')->with('status', 'Password changed successfully! Please log in with your new password.');
+            return redirect()->route('auth#loginPage')->with('status', 'စကားဝှက်ကို အောင်မြင်စွာ ပြောင်းလဲပြီးပါပြီ။ သင့်စကားဝှက်အသစ်ဖြင့် ဝင်ရောက်ပါ။');
 
             // return redirect()->route('logout');
 
                 //  return view('Admin.account.change')->with(['changeSuccess' => 'Password Change Successful']);
         }
-        return back()->with(['notMatch' => 'The Old Password Not Match.Try Again!']) ;
+        return back()->with(['notMatch' => 'စကားဝှက်ဟောင်း မကိုက်ညီပါ။ ထပ်မံကြိုးစားပါ။']) ;
 
     }
 
@@ -124,7 +124,7 @@ class UserController extends Controller
         $this->contactValidationCheck($request);
         $userContact = $this->getMessage($request);
         Contact::create($userContact);
-        return redirect()->route('user#contactUsPage')->with(['contactSuccess' => 'Your Message Send Successfully']);
+        return redirect()->route('user#contactUsPage')->with(['contactSuccess' => 'သင်၏စာတိုပေးပို့မှုအောင်မြင်ပါသည်။']);
     }
 
     public function filter($categoryId)
