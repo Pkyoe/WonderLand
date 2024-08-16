@@ -8,7 +8,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">Customer List</h1>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">ဖောက်သည်စာရင်း</h1>
 
     </div>
 
@@ -35,11 +35,11 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Role</th>
+                        <th scope="col">နံပါတ်</th>
+                        <th scope="col">အမည်</th>
+                        <th scope="col">အီးမေးလ်လိပ်စာ</th>
+                        <th scope="col">ဖုန်းနံပါတ်</th>
+                        <th scope="col">အခန်းကဏ္ဍ</th>
                         <th></th>
 
                     </tr>
@@ -54,8 +54,8 @@
                         <td>{{ $customer->email }}</td>
                         <td>{{ $customer->phone  }}</td>
                         <td>{{ $customer->role  }}</td>
-                        <td><a href="{{ route('customer#changeRolePage',$customer->id) }}" class="btn btn-success">Change Role</a>
-                            <a href="{{ route('customer#block',$customer->id )}}" class="btn btn-danger">Delete</a>
+                        <td><a href="{{ route('customer#changeRolePage',$customer->id) }}" class="btn btn-success">အခန်းကဏ္ဍပြောင်းလဲရန်</a>
+                            <a href="{{ route('customer#block',$customer->id )}}" class="btn btn-danger">ပယ်ဖျက်ရန်</a>
                         </td>
                     </tr>
                     @endif

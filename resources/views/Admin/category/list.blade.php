@@ -7,9 +7,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">Services Categories List</h1>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">ဝန်ဆောင်မှုအမျိုးအစားစာရင်း</h1>
         <a href="{{ route('category#createPage') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: blueviolet;  "><i
-                class="fas fa-download fa-sm text-white-50"></i> Create Category</a>
+                class="fas fa-download fa-sm text-white-50"></i>အမျိုးအစားဖန်တီးရန်</a>
     </div>
 
     @if (session('categorySuccess'))
@@ -42,8 +42,8 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Categories</th>
+                        <th scope="col">နံပါတ်</th>
+                        <th scope="col">အမျိုးအစားများ</th>
                         <th></th>
 
                     </tr>
@@ -72,7 +72,7 @@
 
     </div>
     @else
-    <h3 class=" text-center mt-5" style="color:limegreen;">There is no Categories Here! Please Create Your Categories.</h3>
+    <h3 class=" text-center mt-5" style="color:limegreen;">ဒီမှာအမျိုးအစားမရှိပါဘူး! ကျေးဇူးပြု၍ သင့် အမျိုးအစားများကို ဖန်တီးပါ။</h3>
     @endif
     <!-- Content Row -->
 </div>

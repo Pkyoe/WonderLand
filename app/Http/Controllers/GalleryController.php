@@ -30,7 +30,7 @@ class GalleryController extends Controller
         $data['image'] = $fileName;
 
         Gallery::create($data);
-        return redirect()->route('gallery#list')->with(['galleryCreateSuccess'=>'Gallery Created Successful']);
+        return redirect()->route('gallery#list')->with(['galleryCreateSuccess'=>'ဓာတ်ပုံပြခန်းဖန်တီခြင်းအောင်မြင်ပါသည်။']);
     }
 
     public function edit($id){
@@ -58,12 +58,12 @@ class GalleryController extends Controller
         // Gallery::where('id',$request->id)->update($data);
         $gallery->description = $request->description;
         $gallery->save();
-        return redirect()->route('gallery#list')->with(['galleryUpdateSuccess'=>'Gallery Updated Successful']);
+        return redirect()->route('gallery#list')->with(['galleryUpdateSuccess'=>'ဓာတ်ပုံပြခန်းပြင်ဆင်ခြင်းအောင်မြင်ပါသည်။']);
     }
 
     public function delete($id){
         Gallery::where('id',$id)->delete();
-        return redirect()->route('gallery#list')->with(['galleryDeleteSuccess'=>'Gallery Deleted Successful']);
+        return redirect()->route('gallery#list')->with(['galleryDeleteSuccess'=>'ဓာတ်ပုံပြခန်းပယ်ဖျက်ခြင်းအောင်မြင်ပါသည်။']);
     }
 
     private function dataValidationCheck($request ,$action){

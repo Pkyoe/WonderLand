@@ -28,7 +28,7 @@ class AdminController extends Controller
         $updateData = $this->getUserData($request);
         // dd($updateData);
         User::where('id',$id)->update($updateData);
-        return redirect()->route('admin#profilePage')->with(['updateSuccess' => 'Profile Update Success']);
+        return redirect()->route('admin#profilePage')->with(['updateSuccess' => 'ကိုယ်ရေးအချက်အလက်ပြင်ဆင်မှုအောင်မြင်ပါသည်။']);
 
     }
     public function changePasswordPage()
@@ -52,10 +52,10 @@ class AdminController extends Controller
 
             Auth::guard('web')->logout();
 
-            return redirect()->route('auth#loginPage')->with('status', 'Password changed successfully! Please log in with your new password.');
+            return redirect()->route('auth#loginPage')->with('status', 'စကားဝှက်ကို အောင်မြင်စွာ ပြောင်းလိုက်ပါပြီ! ကျေးဇူးပြု၍ သင့်စကားဝှက်အသစ်ဖြင့် ဝင်ရောက်လိုက်ပါ။');
 
         }
-        return back()->with(['notMatch' => 'The Old Password Not Match.Try Again!']) ;
+        return back()->with(['notMatch' => 'စကားဝှက်ဟောင်း မကိုက်ညီပါ။ ထပ်မံကြိုးစားပါ။']) ;
 
     }
 

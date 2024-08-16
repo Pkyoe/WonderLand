@@ -7,8 +7,8 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">Gallery List</h1>
-        <a href="{{ route('gallery#createPage') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: blueviolet"><i class="fa-solid fa-circle-plus"></i> Uplode Photo</a>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">ဓာတ်ပုံပြခန်းစာရင်း</h1>
+        <a href="{{ route('gallery#createPage') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: blueviolet"><i class="fa-solid fa-circle-plus"></i> ဓာတ်ပုံတင်ရန်</a>
     </div>
 
 
@@ -46,9 +46,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Description</th>
+                        <th scope="col">နံပါတ်</th>
+                        <th scope="col">ဓာတ်ပုံ</th>
+                        <th scope="col">ဖော်ပြချက်</th>
                         <th></th>
 
                     </tr>
@@ -78,7 +78,7 @@
     </div>
     <!-- Content Row -->
     @else
-    <h3 class=" text-center mt-5" style="color:limegreen;">There is no Photo Here! Please Uplode Your Photo.</h3>
+    <h3 class=" text-center mt-5" style="color:limegreen;">ဒီမှာ ဓာတ်ပုံမရှိပါဘူး! ကျေးဇူးပြု၍ သင့်ဓာတ်ပုံကို တင်ပါ။</h3>
 
     @endif
 

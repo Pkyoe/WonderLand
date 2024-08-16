@@ -3,19 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Log\Logger;
+use Illuminate\Support\Facades\Redis;
 
 class BookingController extends Controller
 {
     public function list()
     {
+        $categories=Category::all();
         $booking = Booking::select("bookings.*","categories.name as service_name")
                             ->leftjoin("categories","bookings.service_id","categories.id")
                             ->paginate(5);
+        if (request()->ajax()) {
+            $tableRows = view('Admin.pagination.tbody', compact('booking'))->render();
+            $paginationLinks = $booking->links('pagination::bootstrap-5')->render();
 
-        return view('Admin.booking.list',compact('booking'));
+            return response()->json(['tableRows' => $tableRows, 'paginationLinks' => $paginationLinks]);
+        }
+
+        return view('Admin.booking.list',compact('booking','categories'));
+    }
+
+    public function filter($id){
+        $categories=Category::all();
+        if ($id == "All") {
+            $booking = Booking::select("bookings.*", "categories.name as service_name")
+                ->leftJoin("categories", "bookings.service_id", "=", "categories.id")
+                ->paginate(5);
+        } else {
+            $booking = Booking::select("bookings.*", "categories.name as service_name")
+                ->leftJoin("categories", "bookings.service_id", "=", "categories.id")
+                ->where('service_id', $id)
+                ->paginate(5);
+        }
+
+        // Check if the request is AJAX
+        if (request()->ajax()) {
+            $tableRows = view('Admin.pagination.tbody', compact('booking'))->render();
+            $paginationLinks = $booking->links('pagination::bootstrap-5')->render();
+            return response()->json(['tableRows' => $tableRows, 'paginationLinks' => $paginationLinks]);
+        }
+
+        // For non-AJAX requests, return the full view
+        return view('Admin.booking.list',compact('booking','categories'));
     }
 
     public function feedbackPage()
@@ -27,7 +61,7 @@ class BookingController extends Controller
     public function feedbackDelete($id)
     {
         Contact::where('id',$id)->delete();
-        return redirect()->route('feedback#list')->with(['feedbackDeleteSuccess'=>'Feedback Deleted Successfully']);
+        return redirect()->route('feedback#list')->with(['feedbackDeleteSuccess'=>'အကြံပြုချက်ကို အောင်မြင်စွာ ဖျက်ပြီးပါပြီ။']);
     }
     public function accept($id)
     {
@@ -36,9 +70,9 @@ class BookingController extends Controller
             $booking->status = 'accepted';
             $booking->save();
 
-            return redirect()->route('booking#list')->with(['orderAcceptSuccess'=>'Order Accepted Successfully']);
+            return redirect()->route('booking#list')->with(['orderAcceptSuccess'=>'ကြိုတင်မှာယူခြင်းကို အောင်မြင်စွာ လက်ခံပြီးပါပြီ။']);
         }
-        return response()->json(['message' => 'Order not found.'], 404);
+        return response()->json(['message' => 'ကြိုတင်မှာယူထားခြင်းမရှိပါ'], 404);
 
     }
 
@@ -49,9 +83,9 @@ class BookingController extends Controller
             $booking->status = 'rejected';
             $booking->save();
 
-            return redirect()->route('booking#list')->with(['orderRejectSuccess'=>'Order Rejected Successfully']);
+            return redirect()->route('booking#list')->with(['orderRejectSuccess'=>'ကြိုတင်မှာယူခြင်းကိုပယ်ဖျက်ပီးပါပြီ။']);
         }
-        return response()->json(['message' => 'Order not found.'], 404);
+        return response()->json(['message' => 'ကြိုတင်မှာယူထားခြင်းမရှိပါ။'], 404);
 
     }
 

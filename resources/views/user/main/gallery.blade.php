@@ -9,7 +9,7 @@
         <div class="col-lg-8">
             <div class="mt-5 d-flex justify-content-center">
                 <i class="fa-brands fa-canadian-maple-leaf fs-2 me-2"></i>
-                <h4 style="color:blueviolet">Our Gallery</h4>
+                <h4 style="color:blueviolet">ဓာတ်ပုံပြခန်း</h4>
                 <i class="fa-brands fa-canadian-maple-leaf fs-2 ms-2"></i>
 
             </div>

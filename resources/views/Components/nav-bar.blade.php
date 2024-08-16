@@ -10,20 +10,20 @@
         </button>
         <div class="collapse navbar-collapse ms-5" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active text-dark fs-5" aria-current="page" href="{{ route('guest#homePage') }}">Home</a>
-                <a class="nav-link  fs-5" href="{{ route('guest#aboutPage') }}">About Us</a>
-                <a class="nav-link  fs-5" href="{{ route('guest#galleryPage') }}">Gallery</a>
-                <a class="nav-link  fs-5" href="{{ route('guest#servicePage') }}">Services </a>
-                <a class="nav-link  fs-5" href="{{ route('guest#contactPage') }}">Contact Us</a>
+                <a class="nav-link active text-dark fs-5" aria-current="page" href="{{ route('guest#homePage') }}">ပင်မစာမျက်နှာ</a>
+                <a class="nav-link  fs-5" href="{{ route('guest#aboutPage') }}">အကြောင်းအရာ</a>
+                <a class="nav-link  fs-5" href="{{ route('guest#galleryPage') }}">ဓာတ်ပုံပြခန်း</a>
+                <a class="nav-link  fs-5" href="{{ route('guest#servicePage') }}">ဝန်ဆောင်မှုများ </a>
+                <a class="nav-link  fs-5" href="{{ route('guest#contactPage') }}">ဆက်သွယ်ရေး</a>
             </div>
 
         </div>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
 
-                <a href="{{ route('auth#loginPage') }}" class="navbar-brand btn btn-secondary text-white border-none fs-6 navBtn">Login</a>
+                <a href="{{ route('auth#loginPage') }}" class="navbar-brand btn btn-secondary text-white border-none fs-6 navBtn">အကောင့်ဝင်ရန်</a>
 
-                <a href="{{ route('auth#registerPage') }}" class="navbar-brand btn btn-secondary text-white border-none fs-6 navBtn">Register</a>
+                <a href="{{ route('auth#registerPage') }}" class="navbar-brand btn btn-secondary text-white border-none fs-6 navBtn">မှတ်ပုံတင်ရန်</a>
 
 
             </div>

@@ -43,7 +43,7 @@ class GuestController extends Controller
         $this->contactValidationCheck($request);
         $userContact = $this->getMessage($request);
         Contact::create($userContact);
-        return redirect()->route('guest#contactPage')->with(['contactSuccess' => 'Your Message Send Successfully']);
+        return redirect()->route('guest#contactPage')->with(['contactSuccess' => 'သင်၏စာတိုပေးပို့မှုအောင်မြင်ပါသည်။']);
     }
 
 
@@ -73,7 +73,7 @@ class GuestController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'မှတ်ပုံတင်ထားပီးသားအကောင့်တစ်ခုလိုအပ်ပါသည်။အကောင့်ဝင်ရန်မှတ်ပုံတင်ပါ။',
         ]);
     }
 

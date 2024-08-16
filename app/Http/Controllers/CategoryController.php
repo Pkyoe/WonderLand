@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $data = $this->requestCategoryData($request);
         Category::create($data);
 
-        return redirect()->route('category#list')->with(['categorySuccess'=>'Category Created Successful']);
+        return redirect()->route('category#list')->with(['categorySuccess'=>'အမျိုးအစားကိုအောင်မြင်စွာဖန်တီးပြီးပါပြီ။']);
     }
 
     public function edit($id)
@@ -38,12 +38,12 @@ class CategoryController extends Controller
         $this->categoryDataValidation($request);
         $data = $this->requestCategoryData($request);
         Category::where('id',$request->categoryId)->update($data);
-        return redirect()->route('category#list')->with(['categoryUpdateSuccess'=>'Category Updated Successful']);
+        return redirect()->route('category#list')->with(['categoryUpdateSuccess'=>'အမျိုးအစားကိုအောင်မြင်စွာပြင်ဆင်ပြီးပါပြီ။']);
     }
 
     public function delete($id){
         Category::where('id',$id)->delete();
-        return redirect()->route('category#list')->with(['categoryDeleteSuccess'=>'Category Deleted Successful']);
+        return redirect()->route('category#list')->with(['categoryDeleteSuccess'=>'အမျိုးအစားကိုအောင်မြင်စွာပယ်ဖျက်ပြီးပါပြီ။']);
     }
 
     private function requestCategoryData($request){

@@ -14,11 +14,10 @@
         </div>
         <div class="col-md-6 order-md-first">
             <div class="">
-                <p style="color:blueviolet" class="fs-4">Once in a life moments...</p>
-                <h1 class="fi">Unforgetable Wedding, </h1>
-                <h1 class="fi">Tailored For You</h1>
-                <p class="mt-2">Guiding You Towards the Crafting Timeless Moments Curated Wedding Planning
-                    Tallored to Your Love Story</p>
+                <p style="color:blueviolet" class="fs-4">တစ်သက်မှာတစ်ခါ...</p><br><br>
+                <h1 class="fi">မမေ့နိုင်‌သော </h1>
+                <h1 class="fi">မင်္ဂလာပွဲပုံရိပ်များ</h1><br><br>
+                <p class="mt-2">ခမ်းနားလှပသောမင်္ဂလာပွဲပုံရိပ်များကိုအချိန်မကုန်ဘဲဖန်တီးပေးသောအစီအစဉ်</p>
             </div>
 
         </div>
