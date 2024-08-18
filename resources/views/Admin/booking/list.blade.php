@@ -39,6 +39,17 @@
                 @endforeach
             </ul>
         </div>
+        <div class="row">
+            <div class="col-md-5">
+                <input type="date" id="from_date" class="form-control" placeholder="From Date">
+            </div>
+            <div class="col-md-5">
+                <input type="date" id="to_date" class="form-control" placeholder="To Date">
+            </div>
+            <div class="col-md-2">
+                <button id="filter" class="btn btn-primary">ရှာမည်</button>
+            </div>
+        </div>
 
         <!-- Content Row -->
 
@@ -78,33 +89,49 @@
 @section('script')
 
     <script>
-        $(document).on('click', '.dropdown-item', function(e) {
-            e.preventDefault();
-
-            var categoryId = $(this).data('category-id');
-            fetchBookings('/booking/list-filter/' + categoryId);
-        });
-
-        $(document).on('click', '.pagination a', function(e) {
-            e.preventDefault();
-
-            var url = $(this).attr('href');
-            fetchBookings(url);
-        });
-
-        function fetchBookings(url) {
-            $.ajax({
-                url: url,
-                method: 'GET',
-                success: function(response) {
-                    $('tbody').html(response.tableRows);
-                    $('.pagination').html(response.paginationLinks);
-                },
-                error: function(xhr, status, error) {
-                    console.log('Error:', xhr.responseText);
-                }
+        $(document).ready(function() {
+            // Handle category filter selection
+            $(document).on('click', '.dropdown-item', function(e) {
+                e.preventDefault();
+                var categoryId = $(this).data('category-id');
+                fetchBookings('/booking/list-filter/' + categoryId);
             });
-        }
+
+            // Handle date range filter
+            $('#filter').click(function() {
+                var from_date = $('#from_date').val();
+                var to_date = $('#to_date').val();
+                fetchBookings("{{ route('filter.data') }}", from_date, to_date);
+            });
+
+            // Fetch bookings with optional date range
+            function fetchBookings(url, from_date = '', to_date = '') {
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    data: {
+                        from_date: from_date,
+                        to_date: to_date
+                    },
+                    success: function(response) {
+                        $('tbody').html(response.tableRows);
+                        $('.pagination').html(response.paginationLinks);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error:', xhr.responseText);
+                    }
+                });
+            }
+
+            // Handle pagination link clicks
+            $(document).on('click', '.pagination a', function(e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                var from_date = $('#from_date').val(); // Get current filter values
+                var to_date = $('#to_date').val();
+                fetchBookings(url, from_date, to_date);
+            });
+        });
     </script>
 
 @endsection

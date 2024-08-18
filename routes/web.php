@@ -95,6 +95,7 @@ use App\Http\Controllers\CustomerController;
         Route::prefix('booking')->group(function(){
             Route::get('list',[BookingController::class,'list'])->name('booking#list');
             Route::get('list-filter/{category}', [BookingController::class, 'filter'])->name('booking.listfilter');
+            Route::get('filter-data', [BookingController::class, 'filterData'])->name('filter.data');
             Route::get('feedBack',[BookingController::class,'feedbackPage'])->name('feedback#list');
             Route::post('booking/accept/{id}',[BookingController::class,'accept'])->name('booking#accept');
             Route::post('booking/reject/{id}',[BookingController::class,'reject'])->name('booking#reject');
