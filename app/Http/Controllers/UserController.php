@@ -81,7 +81,8 @@ class UserController extends Controller
 
     public function bookingForm(){
         $categories = Category::select('id','name')->get();
-        return view('user.main.booking',compact('categories'));
+        $existingOrderDates = Booking::pluck('date')->toArray();
+        return view('user.main.booking',compact('categories','existingOrderDates'));
     }
 
     public function create(Request $request){
