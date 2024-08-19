@@ -9,7 +9,10 @@ use App\Models\Category;
 use Illuminate\Log\Logger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
+use PDF;
+
 
 class BookingController extends Controller
 {
@@ -54,20 +57,57 @@ class BookingController extends Controller
         return view('Admin.booking.list', compact('booking', 'categories'));
     }
 
+    // pdf generate
+    public function pdf(Request $request)
+    {
+        // Retrieve the from_date and to_date from the query parameters
+        $from_date = $request->query('from_date');
+        $to_date = $request->query('to_date');
+        $category_id = $request->query('category_id');
+
+
+        // Start building the query
+        $query = Booking::select('bookings.*', 'categories.name as service_name')
+            ->leftJoin('categories', 'bookings.service_id', '=', 'categories.id');
+
+        // Apply date filter only if both from_date and to_date are provided
+        if ($from_date && $to_date) {
+            $from_date = Carbon::parse($from_date)->startOfDay()->format('Y-m-d');
+            $to_date = Carbon::parse($to_date)->endOfDay()->format('Y-m-d');
+            $query->whereBetween('bookings.date', [$from_date, $to_date]);
+        }
+        if ($category_id) {
+            $query->where('bookings.service_id', $category_id);
+        }
+
+        // Fetch the results
+        $bookings = $query->get();
+
+        // Generate the PDF
+        $pdf = PDF::loadView('Admin.pdfgenerate.booking', compact('bookings'));
+        return $pdf->stream('booking.pdf');
+    }
+
 
 
     public function filterData(Request $request)
     {
-        $from_date = Carbon::parse($request->from_date)->startOfDay()->format('Y-m-d');
-        $to_date = Carbon::parse($request->to_date)->endOfDay()->format('Y-m-d');
+        $category_id = $request->query('category_id');
 
         $query = Booking::select('bookings.*', 'categories.name as service_name')
-                        ->leftJoin('categories', 'bookings.service_id', '=', 'categories.id');
+            ->leftJoin('categories', 'bookings.service_id', '=', 'categories.id');
 
-        if ($from_date && $to_date) {
+        // Apply date filter only if both from_date and to_date are present
+        if ($request->filled('from_date') && $request->filled('to_date')) {
+            $from_date = Carbon::parse($request->from_date)->startOfDay()->format('Y-m-d');
+            $to_date = Carbon::parse($request->to_date)->endOfDay()->format('Y-m-d');
             $query->whereBetween('bookings.date', [$from_date, $to_date]);
         }
+        if ($category_id) {
+            $query->where('bookings.service_id', $category_id);
+        }
 
+        // Paginate the results
         $booking = $query->paginate(5);
 
         if ($request->ajax()) {
@@ -78,6 +118,7 @@ class BookingController extends Controller
 
         return view('Admin.booking.list', compact('booking', 'categories'));
     }
+
 
 
 

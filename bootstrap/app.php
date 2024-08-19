@@ -16,7 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
             'isUser' => \App\Http\Middleware\UserMiddleware::class,
-            'isGuest' => \App\Http\Middleware\GuestMiddleware::class
+            'isGuest' => \App\Http\Middleware\GuestMiddleware::class,
+            'PDF' => Mccarlosen\LaravelMpdf\Facades\LaravelMpdf::class
         ]);
 
     })

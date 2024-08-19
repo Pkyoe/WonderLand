@@ -84,7 +84,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">ရက်စွဲ</label>
-                            <input name="date" value="{{ old('date') }}" type="date" class="form-control">
+                            <input name="date" placeholder="နေ့ရက်" id="dateInput" value="{{ old('date') }}" type="date" class="form-control basic-datepicker">
                             @error('date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -143,4 +143,25 @@
 
         </div>
     </div>
+@endsection
+@section('scriptSource')
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    let existingOrderDates = @json($existingOrderDates);
+
+    $(".basic-datepicker").flatpickr({
+        "disable": [
+            function(date) {
+                // Disable weekends
+                return (date.getDay() === 0 || date.getDay() === 6);
+            },
+            ...existingOrderDates.map(date => new Date(date)) // Disable existing order dates
+        ],
+        "locale": {
+            "firstDayOfWeek": 1 // Start week on Monday
+        }
+    });
+});
+
+</script>
 @endsection

@@ -95,13 +95,12 @@ use App\Http\Controllers\CustomerController;
         Route::prefix('booking')->group(function(){
             Route::get('list',[BookingController::class,'list'])->name('booking#list');
             Route::get('list-filter/{category}', [BookingController::class, 'filter'])->name('booking.listfilter');
-            Route::get('filter-data', [BookingController::class, 'filterData'])->name('filter.data');
             Route::get('feedBack',[BookingController::class,'feedbackPage'])->name('feedback#list');
             Route::post('booking/accept/{id}',[BookingController::class,'accept'])->name('booking#accept');
             Route::post('booking/reject/{id}',[BookingController::class,'reject'])->name('booking#reject');
+            Route::get('filter-data', [BookingController::class, 'filterData'])->name('filter.data');
+            Route::get('pdf',[BookingController::class,'pdf'])->name('pdf.generate');
         });
-
-
     });
 
      //user route start
@@ -122,8 +121,6 @@ use App\Http\Controllers\CustomerController;
         Route::get('password/change',[UserController::class,'changePasswordPage'])->name('user#changePasswordPage');
         Route::post('password/change',[UserController::class,'changePassword'])->name('user#changePassword');
         Route::get('filter/{id}',[UserController::class,'filter'])->name('user#filter');
-
-
     });
 
      //user route end
