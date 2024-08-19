@@ -91,6 +91,46 @@
                                 </div>
                             @enderror
                         </div>
+                        <h5 class="text-center my-3">ငွေပေးချေမူအချက်အလက်</h5>
+                        <div class="p-3 my-2">
+                            <div class="row align-items-center">
+                                <div class="col-2">
+                                    <img style="width: 40px;height:40px;" src="https://play-lh.googleusercontent.com/cnKJYzzHFAE5ZRepCsGVhv7ZnoDfK8Wu5z6lMefeT-45fTNfUblK_gF3JyW5VZsjFc4" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <span class="fs-5 fw-bold">KBZPay </span>: ဖုန်းနံပါတ်သို့ငွေလွှဲပါ
+                                </div>
+                                <div class="col-4">
+                                    09785456573
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 my-2">
+                            <div class="row align-items-center">
+                                <div class="col-2">
+                                    <img style="width: 40px;height:40px;" src="https://play-lh.googleusercontent.com/rPq4GMCZy12WhwTlanEu7RzxihYCgYevQHVHLNha1VcY5SU1uLKHMd060b4VEV1r-OQ" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <span class="fs-5 fw-bold">KBZPay </span>: ဖုန်းနံပါတ်သို့ငွေလွှဲပါ
+                                </div>
+                                <div class="col-4">
+                                    09785456573
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 my-2">
+                            <div class="row align-items-center">
+                                <div class="col-2">
+                                    <img style="width: 40px;height:40px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQojuoHdIPbWo9RqSttQXgvv0QrXgw1Y0YwxQ&s" alt="">
+                                </div>
+                                <div class="col-6">
+                                    ငွေပေးချေပီးပါက viberမှတဆင့် ငွေလွှဲပြေစာ ကို ပေးပို့ပါ
+                                </div>
+                                <div class="col-4">
+                                    09785456573
+                                </div>
+                            </div>
+                        </div>
 
 
                         <button type="submit" class="btn btn-secondary navBtn">ကြိုတင်စာရင်းပေးရန်</button>
