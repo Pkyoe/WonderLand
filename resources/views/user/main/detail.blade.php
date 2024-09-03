@@ -11,16 +11,18 @@
             <div class="d-flex mt-5 justify-content-evenly">
                 <img src="{{ asset('storage/'.$detail->image) }}" alt="" class="w-100 rounded-lg">
                 <div class="col-lg-7 ms-5">
-                    <h5 class="">{{ $detail->category_name }}</h5>
+                    <h3 class="" >{{ $detail->category_name }}</h3>
+                    <br>
+                    
+                    <p class="fw-bold"><i class="fa-solid fa-box"></i> Package</p>
+                    <p class="price" style = "color: #212529;">{{ $detail->description }}</p>
+                    <p class="fw-bold"><i class="fa-solid fa-map-location-dot"></i>Location</p>
+                    <p class="price" style = "color: #212529;">{{ $detail->location }}</p>
+
                     <p class="price"><i class="fa-solid fa-money-bill-wave"></i> {{ $detail->price }} MMK</p>
-                    <p class="fw-bold"><i class="fa-solid fa-box"></i> ပါဝင်သည့်အမျိုးအမည်</p>
-                    <p class="price">{{ $detail->description }}</p>
 
-                    <p class="fw-bold"><i class="fa-solid fa-map-location-dot"></i> တည်နေရာ </p>
-                    <p class="price">{{ $detail->location }}</p>
-
-                    <a href="{{ route('user#bookingForm') }}" class="btn btn-secondary navBtn">ယခုစာရင်း‌သွင်းရန်</a>
-                    <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail">ပယ်ဖျက်ရန်</a>
+                    <a href="{{ route('user#bookingForm') }}" class="btn btn-secondary navBtn" style="background-color: #3498db; border:none;">Booking Now</a>
+                    <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail" style="background-color transpent;">Cancel</a>
                 </div>
             </div>
         </div>

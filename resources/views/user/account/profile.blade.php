@@ -8,9 +8,9 @@
 
     <!-- Page Heading -->
     {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">ကိုယ်ရေးအချက်အလက်</h1>
+        <h1 style="color: blueviolet;" class="h3 mb-0 ">UserProfile</h1>
         <a href="{{ route('admin#dashboard') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i>နောက်သို့</a>
+                class="fas fa-download fa-sm text-white-50"></i>Back</a>
     </div> --}}
 
 
@@ -22,19 +22,21 @@
     </div>
     @endif
 
+
+   
     <!-- Content Row -->
     <div class="row d-flex justify-content-center mt-5">
-        <div class="col-lg-6 card p-3 shadow-sm border" style="background-color: lightyellow">
-            <h4 class="" style="color: blueviolet">ပရိုဖိုင်</h4>
-            {{-- <div class="col-4 bg-dark offset-4">မင်္ဂလာပါ</div> --}}
+        <div class="col-lg-6 card p-3 shadow-sm border" style="background-color: #f8f9fa;">
+            <h4 class="" style="color: #212529;">Profile</h4>
+            {{-- <div class="col-4 bg-dark offset-4">Hello</div> --}}
             <div class="col-5 offset-4 mt-1">
-                <h6><i class="fa-solid fa-user-tie me-1"></i> အမည် : {{ Auth::user()->name }}   </h6>
-                <h6><i class="fa-solid fa-envelope-circle-check me-1"></i> အီးမေးလ် :{{ Auth::user()->email }}   </h6>
-                <h6><i class="fa-solid fa-mobile me-1"></i> ဖုန်းနံပါတ် : {{ Auth::user()->phone }}   </h6>
-                <h6><i class="fa-solid fa-flag me-1"></i> အခန်းကဏ္ဍ : {{ Auth::user()->role }}   </h6>
-                <h6><i class="fa-solid fa-calendar me-1"></i> အကောင့်ပြုလုပ်သည့်ရက်စွဲ : {{ Auth::user()->created_at->format('j-F-Y') }}</h6>
-                <a href="{{ route('user#editProfilePage') }}"><button class="btn btn-secondary" style="background-color: limegreen">ပြုပြင်ရန်</button></a>
-                <a href="{{ route('user#homePage') }}"><button class="btn btn-secondary">ပယ်ဖျက်ရန်</button></a>
+                <h6><i class="fa-solid fa-user-tie me-1"></i> Name : {{ Auth::user()->name }}   </h6>
+                <h6><i class="fa-solid fa-envelope-circle-check me-1"></i> Email :{{ Auth::user()->email }}   </h6>
+                <h6><i class="fa-solid fa-mobile me-1"></i> Phone : {{ Auth::user()->phone }}   </h6>
+                <h6><i class="fa-solid fa-flag me-1"></i> Role : {{ Auth::user()->role }}   </h6>
+                <h6><i class="fa-solid fa-calendar me-1"></i> Account Date: {{ Auth::user()->created_at->format('j-F-Y') }}</h6>
+                <a href="{{ route('user#editProfilePage') }}"><button class="btn btn-secondary" style="background-color: #3498db; border:none;">Edit</button></a>
+                <a href="{{ route('user#homePage') }}"><button class="btn btn-secondary" style="background-color:transpent6;border:none;">Cancel</button></a>
             </div>
 
         </div>

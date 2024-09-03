@@ -8,12 +8,12 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mt-2">
-                    <h4 class="">ကြိုတင်စာရင်း‌ပေးသည့်ပုံစံ</h4>
+                    <h4 class="">Booking </h4>
                 </div>
             </div>
 
-            <small class="text-center text-danger">ကြိုတင်စာရင်းမှတ်တမ်းစစ်ဆေးရန် <a
-                    href="{{ route('user#message') }}">ကြိုတင်စာရင်းမှတ်တမ်း</a></small>
+            <small class="text-center text-danger">Check<a
+                    href="{{ route('user#message') }}">Booking List</a></small>
 
         </div>
 
@@ -28,15 +28,15 @@
 
 
         <div class="row d-flex justify-content-center mt-2">
-            <div class="col-lg-6 card p-4 d-flex justify-content-center" style="background-color: lightyellow">
+            <div class="col-lg-6 card p-4 d-flex justify-content-center" style="background-color: #f8f9fa;">
                 {{-- <small class="mb-2 text-danger">Please fill up the form</small> --}}
                 <div class="">
                     <form action="{{ route('user#bookingCreate') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">သတိုးသားအမည်</label>
+                            <label for="exampleInputEmail1" class="form-label">Booking's Name</label>
                             <input name="mrName" value="{{ old('mrName') }}" type="name" class="form-control"
-                                placeholder="သတိုးသားအမည်ရိုက်ထည့်ပါ။">
+                                placeholder="Enter your name">
                             @error('mrName')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -44,28 +44,28 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">သတိုးသမီးအမည်</label>
+                            <label for="exampleInputEmail1" class="form-label">Address</label>
                             <input name="missName" value="{{ old('missName') }}" type="name" class="form-control"
-                                placeholder="သတိုးသမီးအမည်ရိုက်ထည့်ပါ။">
+                                placeholder="Enter your address">
                             @error('missName')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> 
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">သင်၏ဝန်ဆောင်မှုကိုရွေးချယ်ရန်</label>
+                            <label for="exampleInputEmail1" class="form-label">Choose Package</label>
                             <select name="serviceName" class="form-control @error('serviceName') is-invalid @enderror">
-                                <option value="">သင်၏ဝန်ဆောင်မှုအမည်ကိုရွေးချယ်ပါ</option>
+                                <option value="">Choose your package</option>
                                 @foreach ($categories as $c)
                                     <option value="{{ $c->id }}">{{ $c->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
-                            {{-- <label for="exampleInputEmail1" class="form-label">အီးမေးလ်လိပ်စာ</label> --}}
+                            {{-- <label for="exampleInputEmail1" class="form-label">Email</label> --}}
                             <input name="email" value="{{ Auth::user()->email }}" type="hidden" class="form-control"
-                                placeholder="အီးမေးလ်ရိုက်ထည့်ပါ။" >
+                                placeholder="Enter your email" >
                             {{-- @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -73,9 +73,9 @@
                             @enderror --}}
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">ဖုန်းနံပါတ်</label>
+                            <label for="exampleInputEmail1" class="form-label">Phone</label>
                             <input name="phone" value="{{ old('phone') }}" type="phone" class="form-control"
-                                placeholder="ဖုန်းနံပါတ်ရိုက်ထည့်ပါ။">
+                                placeholder="Enter your phone number">
                             @error('phone')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -83,15 +83,15 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">ရက်စွဲ</label>
-                            <input name="date" placeholder="နေ့ရက်" id="dateInput" value="{{ old('date') }}" type="date" class="form-control basic-datepicker">
+                            <label for="exampleInputEmail1" class="form-label">Date</label>
+                            <input name="date" placeholder="date" id="dateInput" value="{{ old('date') }}" type="date" class="form-control basic-datepicker">
                             @error('date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                        <h5 class="text-center my-3">ငွေပေးချေမူအချက်အလက်</h5>
+                        <h5 class="text-center my-3">Payment</h5>
                         <div class="p-3 my-2">
                             <div class="row align-items-center">
                                 <div class="col-2">
@@ -133,8 +133,8 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-secondary navBtn">ကြိုတင်စာရင်းပေးရန်</button>
-                        <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail">ပယ်ဖျက်ရန်</a>
+                        <button type="submit" class="btn btn-secondary navBtn" style= "background-color:#3498db; border:none;">Confrim Booking</button>
+                        <a href="{{ route('user#servicePage') }}" class="btn btn-secondary detail">Cancel</a>
                     </form>
                 </div>
 

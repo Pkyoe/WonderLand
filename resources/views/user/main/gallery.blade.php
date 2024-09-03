@@ -4,26 +4,20 @@
 
 @section('content')
 
+<<section id="services" class="gallery section ">
 <div class="container-lg mb-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="mt-5 d-flex justify-content-center">
-                <i class="fa-brands fa-canadian-maple-leaf fs-2 me-2"></i>
-                <h4 style="color:blueviolet">ဓာတ်ပုံပြခန်း</h4>
-                <i class="fa-brands fa-canadian-maple-leaf fs-2 ms-2"></i>
-
-            </div>
-            <hr>
-        </div>
-
-    </div>
+    <!-- Section Title -->
+   <div class="container section-title" data-aos="">
+       <h2>Gallery</h2>
+        <p>All photos is copy right to wonderland studio! Copy right serve</p>
+    </div><!-- End Section Title -->
 
     <div class="row mt-4  min-vh-100">
         @foreach ($photos as $p )
         <div class="col-lg-4">
             <div class="card mt-5 ">
                <a href=""> <img src="{{ asset('storage/'.$p->image) }}" class="card-img-top" alt="..."></a>
-               <small class="text-center">{{ $p->description }}</small>
+               
 
             </div>
         </div>
@@ -37,6 +31,7 @@
 
     </div>
 </div>
+</section>
 @endsection
 
 

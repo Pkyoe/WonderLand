@@ -4,30 +4,56 @@
 
 @section('content')
 
-<!-- about us start  -->
-<div class="container-lg  min-vh-100 " id="aboutUs">
-    <div class="row align-items-center align-content-center">
-        <div class="col-md-12">
+<!-- About Section -->
+<section id="about" class="about section">
 
-            <div class="d-flex">
+<!-- Section Title -->
+<div class="container section-title" data-aos="">
+  <h2>About Us</h2>
+  <p>We capture life's most cherished moments with creative precision and transform them into timeless, beautifully edited images.</p>
+</div><!-- End Section Title -->
 
-                <div class="mt-5 col-lg-6">
-                    <img src="{{ asset('image/couple.svg') }}" class="img-fluid">
-                </div>
-                <div class=" col align-self-center">
-                    <h5 class="text-center" style="color:blueviolet">အကြောင်းအရာ</h5>
-                    <p>အိပ်မက်များ အမှန်တကယ်ဖြစ်လာပြီး
-လှပသောမင်္ဂလာပွဲပုံရိပ်များထွက်ပေါ်လာမည့်Dream မှကြိုဆိုပါသည်။
-ကျွန်ုပ်တို့သည် မမေ့နိုင်သောမင်္ဂလာပွဲပုံရိပ်များကိုဖန်တီးရန်စိတ်အားထက်သန်သော ကျွမ်းကျင်ပညာရှင်များ၏သီးသန့်အဖွဲ့တစ်ဖွဲ့ဖြစ်သည်။
-ကျွန်ုပ်တို့၏ရည်ရွယ်ချက်မှာသင်တို့၏အိပ်မက်ကိုလက်တွေ့အဖြစ်သို့ပြောင်းလဲရန်ဖြစ်ပြီးပုံရိပ်တိုင်းသည်သင်၏စိတ်ကိုပျော်ရွှင်စေမှာအသေအချာပင်ဖြစ်ပါသည်။</p>
-2024ခုနှစ်တွင်စတင်တည်ထောင်ခဲ့သော Dreams သည် လှပသောမင်္ဂလာပွဲပုံရိပ်များကိုဖန်တီးပေးသည့်
-                    ကျွန်ုပ်တို့၏Systemသည်သင်တို့၏အထူးနေ့အတွက်လှပသောပုံရိပ်များရရှိစေမည့်ဝန်ဆောင်မှုတစ်ခုကိုမျှော်မှန်းထားသည်။</p>
-                </div>
-            </div>
+<div class="container">
 
-        </div>
+  <div class="row gy-3">
+
+    <div class="col-lg-6" data-aos="" data-aos-delay="">
+      <img src="{{ asset('assets/img/ourphoto.jpg') }}" alt="" class="img-fluid">
     </div>
+
+    <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="" data-aos-delay="">
+      <div class="about-content ps-0 ps-lg-3">
+        <h3>Our Studio History</h3>
+        <p class="fst-italic">
+        Founded in 2022, Wonderland Studio is dedicated to capturing the magic and beauty of every moment. With a passion for storytelling through photography, we specialize in creating stunning,
+         high-quality images that preserve your most cherished memories. Our team combines creative vision with technical expertise to deliver exceptional results for weddings, portraits, events, and more.
+        </p>
+        <ul>
+          <li>
+            <i class="bi bi-diagram-3"></i>
+            <div>
+              <h4>Growing Network</h4>
+              <p>Our customer network has grown significantly since our founding in 2022, thanks to our commitment to delivering exceptional photography experiences</p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-fullscreen-exit"></i>
+            <div>
+              <h4>Communicate</h4>
+              <p>Effective communication is a cornerstone of our service at Wonderland Studio. We prioritize clear, open, and respectful dialogue with our clients to fully understand their vision and expectations.</p>
+            </div>
+          </li>
+        </ul>
+        <p>
+        We continue to nurture and grow our network by providing outstanding service, engaging with our community, and staying attuned to the needs of our clients, ensuring that every interaction contributes to our ongoing success.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
 </div>
-<!-- about us end  -->
+
+</section><!-- /About Section -->
 
 @endsection

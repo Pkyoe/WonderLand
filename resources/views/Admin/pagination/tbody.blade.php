@@ -11,11 +11,11 @@
     <td class="d-flex">
         <form action="{{ route('booking#accept', $b->id) }}" method="POST" class="mx-2">
             @csrf
-            <button type="submit" class="btn btn-success">လက်ခံသည်</button>
+            <button type="submit" class="btn btn-success">Accept</button>
         </form>
         <form action="{{ route('booking#reject', $b->id) }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-danger">ငြင်းပယ်သည်</button>
+            <button type="submit" class="btn btn-danger">Reject</button>
         </form>
     </td>
 </tr>

@@ -7,7 +7,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex  align-items-center justify-content-between mb-4">
-            <h1 style="color: blueviolet;" class="h3 mb-0 ">ကြိုတင်စာရင်းပေးမှတ်တမ်း</h1>
+            <h1 style="color: #212529;" class="h3 mb-0 ">Booking List</h1>
 
         </div>
 
@@ -28,11 +28,11 @@
         @endif
         <div class="dropdown p-2 m-1 ">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                ရွေးချယ်နိုင်ခြင်းများ
+                aria-expanded="false" style="background-color: #3498db; border:none;">
+                Categories
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item filter-category" data-category-id="All">အားလုံး</a></li>
+                <li><a class="dropdown-item filter-category" data-category-id="All">All</a></li>
                 @foreach ($categories as $c)
                     <li><a class="dropdown-item filter-category"
                             data-category-id="{{ $c->id }}">{{ $c->name }}</a></li>
@@ -49,12 +49,12 @@
                 <input type="date" id="to_date" class="form-control" placeholder="To Date">
             </div>
             <div class="col-md-2">
-                <button id="filter" class="btn btn-dark">ရှာမည်</button>
+                <button id="filter" class="btn btn-dark" style="background-color: #3498db; border:none;">Search</button>
             </div>
         </div>
         {{-- <a href="{{ route('pdf.generate')}}" target="_blank" class=" text-decoration-none text-white btn btn-sm btn-dark"><i class="fa-solid fa-file-pdf"></i> Download</a> --}}
-        <a href="#" id="pdfDownload" target="_blank" class="text-decoration-none text-white btn btn-sm btn-dark">
-            <i class="fa-solid fa-file-pdf"></i> Download
+        <a href="#" id="pdfDownload" target="_blank" class="text-decoration-none text-white btn btn-sm btn-dark" style="background-color: #3498db; border:none;">
+            <i class="fa-solid fa-file-pdf" ></i> Download
         </a>
         <!-- Content Row -->
 
@@ -63,14 +63,15 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">နံပါတ်</th>
-                            <th scope="col">သတိုးသားအမည်</th>
-                            <th scope="col">သတိုးသမီးအမည်</th>
-                            <th scope="col">ဝန်ဆောင်မှုအမည်</th>
-                            <th scope="col">အီးမေးလ်လိပ်စာ</th>
-                            <th scope="col">ဖုန်းနံပါတ်</th>
-                            <th scope="col">ရက်စွဲ</th>
-                            <th scope="col">အကြောင်းအရာ</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            
+                            <th scope="col">Address</th>
+                            <th scope="col">Package</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone No</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -88,6 +89,8 @@
 
         <!-- Content Row -->
     </div>
+
+    <br>
 
 @endsection
 @section('script')

@@ -7,7 +7,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color: blueviolet;" class="h3 mb-0 ">အကြံပြုစာများ</h1>
+        <h1 style="color:  #212529;" class="h3 mb-0 ">Feedback</h1>
 
     </div>
 
@@ -26,10 +26,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">နံပတ်</th>
-                        <th scope="col"> အမည်</th>
-                        <th scope="col">အီးမေးလ်လိပ်စာ</th>
-                        <th scope="col">အကြံပြုစာများ</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Feedback</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,7 +53,7 @@
 
     </div>
 
-    {{-- <h3 class=" text-center mt-5" style="color:limegreen;">ဒီမှာအမျိုးအစားမရှိပါဘူး! ကျေးဇူးပြု၍ သင့် အမျိုးအစားများကို ဖန်တီးပါ။</h3> --}}
+    {{-- <h3 class=" text-center mt-5" style="background-color: transpent;">You don't have any feedback for now!</h3> --}}
 
     <!-- Content Row -->
 </div>

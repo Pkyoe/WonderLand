@@ -36,15 +36,15 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul style="background-color: lightyellow;" class=" navbar-nav  sidebar sidebar-dark accordion"
+        <ul style="background-color: #edede9;" class=" navbar-nav  sidebar sidebar-dark accordion"
             id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center text-dark" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="{{ asset('image/photo.svg') }}" class="w-100">
+                <div class="sidebar-brand-icon rotate-n-0">
+                    <img src="{{ asset('assets/img/favicon-bg.png') }}" class="w-100">
                 </div>
-                <div class="sidebar-brand-text mx-3 text-dark">Wedding Dashboard</div>
+                <div class="sidebar-brand-text mx-3 text-dark">WonderLand Studio</div>
             </a>
 
             <!-- Divider -->
@@ -70,14 +70,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa-solid fa-box-open text-dark"></i>
-                    <span class="text-dark">ဝန်ဆောင်မှုများ</span>
+                    <span class="text-dark">Service</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item text-dark" href="{{ route('category#list') }}">အမျိုးအစားများ</a>
-                        <a class="collapse-item text-dark" href="{{ route('service#list') }}">ဝန်ဆောင်မှုများ</a>
-                        <a class="collapse-item text-dark" href="{{ route('service#createPage') }}">ဝန်ဆောင်မှုဖန်တီးရန်</a>
+                        <a class="collapse-item text-dark" href="{{ route('category#list') }}">Package</a>
+                        <a class="collapse-item text-dark" href="{{ route('service#list') }}">Service List</a>
+                        <a class="collapse-item text-dark" href="{{ route('service#createPage') }}">Create Service</a>
 
                     </div>
                 </div>
@@ -88,14 +88,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-image text-dark"></i>
-                    <span class="text-dark">ဓာတ်ပုံပြခန်း</span>
+                    <span class="text-dark">Gallery</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="{{ route('gallery#createPage') }}">ဓာတ်ပုံတင်ရန်</a>
-                        <a class="collapse-item" href="{{ route('gallery#list') }}">ဓာတ်ပုံများ</a>
+                        <a class="collapse-item" href="{{ route('gallery#createPage') }}">Upload Photos</a>
+                        <a class="collapse-item" href="{{ route('gallery#list') }}">Photos</a>
 
                     </div>
                 </div>
@@ -105,13 +105,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-users text-dark"></i>
-                    <span class="text-dark">ဖောက်သည်စီမံခန့်ခွဲမှု</span>
+                    <span class="text-dark">Accounts</span>
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('customer#list') }}">ဖောက်သည်စာရင်း</a>
-                        <a class="collapse-item" href="{{ route('admin#list') }}">အုပ်ချုပ်သူစာရင်း</a>
+                        <a class="collapse-item" href="{{ route('customer#list') }}">Customer List</a>
+                        <a class="collapse-item" href="{{ route('admin#list') }}">Admin List</a>
                     </div>
                 </div>
             </li>
@@ -120,13 +120,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesTwo"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-envelopes-bulk text-dark"></i>
-                    <span class="text-dark">ကြိုတင်စာရင်းပေးခြင်း</span>
+                    <span class="text-dark">Booking</span>
                 </a>
                 <div id="collapseUtilitiesTwo" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('booking#list') }}">ကြိုတင်စာရင်းမှတ်တမ်း</a>
-                        <a class="collapse-item" href="{{ route('feedback#list') }}">အကြံပြုစာများ</a>
+                        <a class="collapse-item" href="{{ route('booking#list') }}">Booking List</a>
+                        <a class="collapse-item" href="{{ route('feedback#list') }}">Feedback</a>
 
                     </div>
                 </div>
@@ -154,7 +154,7 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <h4 class="" style="color: blueviolet">မင်္ဂလာဆောင်ဝန်ဆောင်မှု Admin  Dashboard မှကြိုဆိုပါသည်။</h4>
+                    <h4 class="" style="color: #1b263b;">Welcome to WonderLand Studio Control-Board</h4>
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -185,16 +185,16 @@
                             <ul style="z-index: 99999!important;" class=" dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item m-2" href="{{ route('admin#profilePage') }}">
-                                    <i class="fa-solid fa-id-card"></i> ပရိုဖိုင်
+                                    <i class="fa-solid fa-id-card"></i> Profile
                                 </a>
                                 <a class="dropdown-item m-2" href="{{ route('admin#changePasswordPage') }}">
-                                    <i class="fa-solid fa-key"></i> စကားဝှက်ပြောင်းရန်
+                                    <i class="fa-solid fa-key"></i> Change Password
                                 </a>
 
                                 <form action="{{ route('logout') }}" class="p-3" method="POST">
                                     @csrf
                                         <button class="w-100 btn btn-primary" type="submit"
-                                            data-dismiss="modal"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>အကောင့်ထွက်ရန်</button>
+                                            data-dismiss="modal"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</button>
                                 </form>
 
 
@@ -216,7 +216,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2024 Made with ♥ by Swagger</span>
+                        <span>Copyright &copy; Your Website 2024 Made with PHP Larvela</span>
                     </div>
                 </div>
             </footer>
@@ -248,10 +248,10 @@
                 <div class="modal-footer">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ရန်</button>
-                        <button class="btn btn-primary" type="submit" data-dismiss="modal">အကောင့်ထွက်ရန်</button>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary" type="submit" data-dismiss="modal">Logout</button>
 
-                        {{-- <a class="btn btn-primary" href="{{ route('logout') }}">အကောင့်ထွက်ရန်</a> --}}
+                        {{-- <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a> --}}
                     </form>
                 </div>
             </div>
